@@ -21,6 +21,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
+
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapAPI);
         mapFragment.getMapAsync(this);
     }
@@ -31,6 +32,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng USCVillage = new LatLng(34.0256, -118.2850);
         mapAPI.addMarker(new MarkerOptions().position(USCVillage).title("USCVillage"));
         mapAPI.animateCamera(CameraUpdateFactory.newLatLngZoom(USCVillage, 16.0f));
-
     }
+
+
 }
