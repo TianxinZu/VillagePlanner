@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -35,7 +36,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         mapAPI = googleMap;
         LatLng USCVillage = new LatLng(34.0256, -118.2850);
         mapAPI.addMarker(new MarkerOptions().position(USCVillage).title("USCVillage"));
-        mapAPI.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(34.0256, -118.2850), 16.0f));
+        mapAPI.animateCamera(CameraUpdateFactory.newLatLngZoom(USCVillage, 16.0f));
 
     }
 }
