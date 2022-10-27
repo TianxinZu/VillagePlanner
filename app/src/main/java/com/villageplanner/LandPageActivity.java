@@ -13,4 +13,12 @@ public class LandPageActivity extends AppCompatActivity {
         setContentView(R.layout.land_page);
 
     }
+
+    public void register() {
+        // navigate to register page
+    }
+
+    public void login() {
+        // navigate to log in page
+    }
 }
