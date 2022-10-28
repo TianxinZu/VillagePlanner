@@ -13,7 +13,6 @@ public class LandPageActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.land_page);
-
     }
 
     public void register(View view) {
