@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">VillagePlanner</string>
     <string name="map_key" translatable="false">AIzaSyDW0IEE05MOrjZxx0ya_RTXXW0hWDGmUR4</string>
+    <string name="USER_TABLE">Users</string>
 </resources>
