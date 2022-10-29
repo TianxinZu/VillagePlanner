@@ -1,13 +1,14 @@
 {
   "project_info": {
     "project_number": "909955705948",
+    "firebase_url": "https://villageplanner-c7c90-default-rtdb.firebaseio.com",
     "project_id": "villageplanner-c7c90",
     "storage_bucket": "villageplanner-c7c90.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:909955705948:android:a869956d82fd0ef4fa0a99",
+        "mobilesdk_app_id": "1:909955705948:android:ee612c0490aa2bb4fa0a99",
         "android_client_info": {
           "package_name": "com.villageplanner"
         }
