@@ -31,4 +31,8 @@ public class User {
     public String getImageUrl() {
         return this.imageUrl;
     }
+
+    public List<Reminder> getReminders() {
+        return this.reminders;
+    }
 }

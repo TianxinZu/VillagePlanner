@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-mergeDebugResources-46:\\layout\\login_page.xml",
+        "source": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-main-49:\\layout\\login_page.xml"
+    },
+    {
+        "merged": "com.villageplanner.app-mergeDebugResources-46:/layout/activity_reminders.xml",
+        "source": "com.villageplanner.app-main-49:/layout/activity_reminders.xml"
+    },
+    {
+        "merged": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-mergeDebugResources-46:\\layout\\register_page.xml",
+        "source": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-main-49:\\layout\\register_page.xml"
+    },
+    {
+        "merged": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-mergeDebugResources-46:\\layout\\activity_reminders.xml",
+        "source": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-main-49:\\layout\\activity_reminders.xml"
+    },
+    {
+        "merged": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-mergeDebugResources-46:\\layout\\main_page.xml",
+        "source": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-main-49:\\layout\\main_page.xml"
+    },
+    {
+        "merged": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-mergeDebugResources-46:\\layout\\land_page.xml",
+        "source": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-main-49:\\layout\\land_page.xml"
+    }
+]

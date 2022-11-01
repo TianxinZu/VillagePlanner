@@ -24,12 +24,12 @@
         android:hint="Your secret password" />
 
     <Button
-        android:id="@+id/register"
+        android:id="@+id/login"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:text="REGISTER"
+        android:text="LOGIN"
         android:onClick="login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

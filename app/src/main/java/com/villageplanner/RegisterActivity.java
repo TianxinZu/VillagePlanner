@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 public class RegisterActivity extends AppCompatActivity {
 
     private FirebaseAuth auth;
-    FirebaseDatabase root;
+    private FirebaseDatabase root;
     final String USER_TABLE = "Users";
     final String EMAIL_PATTERN = "^[a-zA-Z0-9_+&*-]+(?:\\."
             + "[a-zA-Z0-9_+&*-]+)*@"

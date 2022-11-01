@@ -1,0 +1,7 @@
+com.villageplanner.test.app-androidTest-0 D:\Tony\USC\CSCI 310\VillagePlanner\app\build\generated\res\resValues\androidTest\debug
+com.villageplanner.test.app-androidTest-1 D:\Tony\USC\CSCI 310\VillagePlanner\app\build\generated\res\rs\androidTest\debug
+com.villageplanner.test.app-mergeDebugAndroidTestResources-2 D:\Tony\USC\CSCI 310\VillagePlanner\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.villageplanner.test.app-mergeDebugAndroidTestResources-3 D:\Tony\USC\CSCI 310\VillagePlanner\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.villageplanner.test.app-merged_res-4 D:\Tony\USC\CSCI 310\VillagePlanner\app\build\intermediates\merged_res\debugAndroidTest
+com.villageplanner.test.app-androidTest-5 D:\Tony\USC\CSCI 310\VillagePlanner\app\src\androidTest\res
+com.villageplanner.test.app-androidTestDebug-6 D:\Tony\USC\CSCI 310\VillagePlanner\app\src\androidTestDebug\res
