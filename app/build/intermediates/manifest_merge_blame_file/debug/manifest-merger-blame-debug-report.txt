@@ -46,7 +46,7 @@
 26    </queries>
 27
 28    <application
-28-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:13:5-53:19
+28-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:13:5-56:19
 29        android:allowBackup="true"
 29-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:14:9-35
 30        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -73,221 +73,227 @@
 42        android:usesCleartextTraffic="true" >
 42-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:23:9-44
 43        <activity
-43-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:25:9-29:71
-44            android:name="com.villageplanner.RemindersActivity"
-44-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:26:13-46
-45            android:exported="false"
+43-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:25:9-27:40
+44            android:name="com.villageplanner.AddReminderActivity"
+44-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:26:13-48
+45            android:exported="false" />
 45-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:27:13-37
-46            android:label="@string/title_activity_reminders"
-46-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:28:13-61
-47            android:theme="@style/Theme.VillagePlanner.NoActionBar" />
-47-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:29:13-68
-48
-49        <meta-data
-49-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:31:9-33:47
-50            android:name="com.google.android.geo.API_KEY"
-50-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:32:13-58
-51            android:value="@string/map_key" />
-51-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:33:13-44
-52
-53        <activity
-53-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:35:9-37:48
-54            android:name="com.villageplanner.MainActivity"
-54-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:36:13-41
-55            android:exported="true" />
-55-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:37:13-36
+46        <activity
+46-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:28:9-32:71
+47            android:name="com.villageplanner.RemindersActivity"
+47-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:29:13-46
+48            android:exported="false"
+48-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:30:13-37
+49            android:label="@string/title_activity_reminders"
+49-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:31:13-61
+50            android:theme="@style/Theme.VillagePlanner.NoActionBar" />
+50-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:32:13-68
+51
+52        <meta-data
+52-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:34:9-36:47
+53            android:name="com.google.android.geo.API_KEY"
+53-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:35:13-58
+54            android:value="@string/map_key" />
+54-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:36:13-44
+55
 56        <activity
-56-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:38:9-46:20
-57            android:name="com.villageplanner.LandPageActivity"
-57-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:39:13-45
-58            android:exported="true" >
+56-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:38:9-40:39
+57            android:name="com.villageplanner.MainActivity"
+57-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:39:13-41
+58            android:exported="true" />
 58-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:40:13-36
-59            <intent-filter>
-59-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:41:13-45:29
-60                <action android:name="android.intent.action.MAIN" />
-60-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:42:17-69
-60-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:42:25-66
-61
-62                <category android:name="android.intent.category.LAUNCHER" />
-62-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:44:17-77
-62-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:44:27-74
-63            </intent-filter>
-64        </activity>
-65        <activity
-65-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:47:9-49:48
-66            android:name="com.villageplanner.RegisterActivity"
-66-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:48:13-45
-67            android:exported="true" />
-67-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:49:13-36
+59        <activity
+59-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:41:9-49:20
+60            android:name="com.villageplanner.LandPageActivity"
+60-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:42:13-45
+61            android:exported="true" >
+61-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:43:13-36
+62            <intent-filter>
+62-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:44:13-48:29
+63                <action android:name="android.intent.action.MAIN" />
+63-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:45:17-69
+63-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:45:25-66
+64
+65                <category android:name="android.intent.category.LAUNCHER" />
+65-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:47:17-77
+65-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:47:27-74
+66            </intent-filter>
+67        </activity>
 68        <activity
-68-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:50:9-52:48
-69            android:name="com.villageplanner.LoginActivity"
-69-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:51:13-42
+68-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:50:9-52:39
+69            android:name="com.villageplanner.RegisterActivity"
+69-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:51:13-45
 70            android:exported="true" />
 70-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:52:13-36
-71        <!-- Needs to be explicitly declared on P+ -->
-72        <uses-library
-72-->[com.google.android.gms:play-services-maps:18.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b35274c519abae85e4de9e95d38f2ee5\transformed\play-services-maps-18.1.0\AndroidManifest.xml:39:9-41:40
-73            android:name="org.apache.http.legacy"
-73-->[com.google.android.gms:play-services-maps:18.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b35274c519abae85e4de9e95d38f2ee5\transformed\play-services-maps-18.1.0\AndroidManifest.xml:40:13-50
-74            android:required="false" />
-74-->[com.google.android.gms:play-services-maps:18.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b35274c519abae85e4de9e95d38f2ee5\transformed\play-services-maps-18.1.0\AndroidManifest.xml:41:13-37
-75
-76        <service
-76-->[com.google.firebase:firebase-database:20.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\690973c7929417283913141ea3e91e66\transformed\firebase-database-20.1.0\AndroidManifest.xml:28:9-34:19
-77            android:name="com.google.firebase.components.ComponentDiscoveryService"
-77-->[com.google.firebase:firebase-database:20.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\690973c7929417283913141ea3e91e66\transformed\firebase-database-20.1.0\AndroidManifest.xml:29:13-84
-78            android:directBootAware="true"
-78-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:34:13-43
-79            android:exported="false" >
-79-->[com.google.firebase:firebase-database:20.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\690973c7929417283913141ea3e91e66\transformed\firebase-database-20.1.0\AndroidManifest.xml:30:13-37
-80            <meta-data
-80-->[com.google.firebase:firebase-database:20.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\690973c7929417283913141ea3e91e66\transformed\firebase-database-20.1.0\AndroidManifest.xml:31:13-33:85
-81                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
-81-->[com.google.firebase:firebase-database:20.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\690973c7929417283913141ea3e91e66\transformed\firebase-database-20.1.0\AndroidManifest.xml:32:17-109
-82                android:value="com.google.firebase.components.ComponentRegistrar" />
-82-->[com.google.firebase:firebase-database:20.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\690973c7929417283913141ea3e91e66\transformed\firebase-database-20.1.0\AndroidManifest.xml:33:17-82
+71        <activity
+71-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:53:9-55:39
+72            android:name="com.villageplanner.LoginActivity"
+72-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:54:13-42
+73            android:exported="true" />
+73-->D:\Tony\USC\CSCI 310\VillagePlanner\app\src\main\AndroidManifest.xml:55:13-36
+74        <!-- Needs to be explicitly declared on P+ -->
+75        <uses-library
+75-->[com.google.android.gms:play-services-maps:18.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b35274c519abae85e4de9e95d38f2ee5\transformed\play-services-maps-18.1.0\AndroidManifest.xml:39:9-41:40
+76            android:name="org.apache.http.legacy"
+76-->[com.google.android.gms:play-services-maps:18.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b35274c519abae85e4de9e95d38f2ee5\transformed\play-services-maps-18.1.0\AndroidManifest.xml:40:13-50
+77            android:required="false" />
+77-->[com.google.android.gms:play-services-maps:18.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b35274c519abae85e4de9e95d38f2ee5\transformed\play-services-maps-18.1.0\AndroidManifest.xml:41:13-37
+78
+79        <service
+79-->[com.google.firebase:firebase-database:20.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\690973c7929417283913141ea3e91e66\transformed\firebase-database-20.1.0\AndroidManifest.xml:28:9-34:19
+80            android:name="com.google.firebase.components.ComponentDiscoveryService"
+80-->[com.google.firebase:firebase-database:20.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\690973c7929417283913141ea3e91e66\transformed\firebase-database-20.1.0\AndroidManifest.xml:29:13-84
+81            android:directBootAware="true"
+81-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:34:13-43
+82            android:exported="false" >
+82-->[com.google.firebase:firebase-database:20.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\690973c7929417283913141ea3e91e66\transformed\firebase-database-20.1.0\AndroidManifest.xml:30:13-37
 83            <meta-data
-83-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:67:13-69:85
-84                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-84-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:68:17-109
+83-->[com.google.firebase:firebase-database:20.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\690973c7929417283913141ea3e91e66\transformed\firebase-database-20.1.0\AndroidManifest.xml:31:13-33:85
+84                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+84-->[com.google.firebase:firebase-database:20.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\690973c7929417283913141ea3e91e66\transformed\firebase-database-20.1.0\AndroidManifest.xml:32:17-109
 85                android:value="com.google.firebase.components.ComponentRegistrar" />
-85-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:69:17-82
-86        </service>
-87
-88        <activity
-88-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:27:9-44:20
-89            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
-89-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:28:13-80
-90            android:excludeFromRecents="true"
-90-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:29:13-46
-91            android:exported="true"
-91-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:30:13-36
-92            android:launchMode="singleTask"
-92-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:31:13-44
-93            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-93-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:32:13-72
-94            <intent-filter>
-94-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:33:13-43:29
-95                <action android:name="android.intent.action.VIEW" />
-95-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:34:17-69
-95-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:34:25-66
-96
-97                <category android:name="android.intent.category.DEFAULT" />
-97-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:36:17-76
-97-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:36:27-73
-98                <category android:name="android.intent.category.BROWSABLE" />
-98-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:37:17-78
-98-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:37:27-75
+85-->[com.google.firebase:firebase-database:20.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\690973c7929417283913141ea3e91e66\transformed\firebase-database-20.1.0\AndroidManifest.xml:33:17-82
+86            <meta-data
+86-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:67:13-69:85
+87                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+87-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:68:17-109
+88                android:value="com.google.firebase.components.ComponentRegistrar" />
+88-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:69:17-82
+89        </service>
+90
+91        <activity
+91-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:27:9-44:20
+92            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+92-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:28:13-80
+93            android:excludeFromRecents="true"
+93-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:29:13-46
+94            android:exported="true"
+94-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:30:13-36
+95            android:launchMode="singleTask"
+95-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:31:13-44
+96            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+96-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:32:13-72
+97            <intent-filter>
+97-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:33:13-43:29
+98                <action android:name="android.intent.action.VIEW" />
+98-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:34:17-69
+98-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:34:25-66
 99
-100                <data
-100-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:39:17-42:51
-101                    android:host="firebase.auth"
-101-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:40:21-49
-102                    android:path="/"
-102-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:41:21-37
-103                    android:scheme="genericidp" />
-103-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:42:21-48
-104            </intent-filter>
-105        </activity>
-106        <activity
-106-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:45:9-62:20
-107            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
-107-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:46:13-79
-108            android:excludeFromRecents="true"
-108-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:47:13-46
-109            android:exported="true"
-109-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:48:13-36
-110            android:launchMode="singleTask"
-110-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:49:13-44
-111            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-111-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:50:13-72
-112            <intent-filter>
-112-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:51:13-61:29
-113                <action android:name="android.intent.action.VIEW" />
-113-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:34:17-69
-113-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:34:25-66
-114
-115                <category android:name="android.intent.category.DEFAULT" />
-115-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:36:17-76
-115-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:36:27-73
-116                <category android:name="android.intent.category.BROWSABLE" />
-116-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:37:17-78
-116-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:37:27-75
+100                <category android:name="android.intent.category.DEFAULT" />
+100-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:36:17-76
+100-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:36:27-73
+101                <category android:name="android.intent.category.BROWSABLE" />
+101-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:37:17-78
+101-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:37:27-75
+102
+103                <data
+103-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:39:17-42:51
+104                    android:host="firebase.auth"
+104-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:40:21-49
+105                    android:path="/"
+105-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:41:21-37
+106                    android:scheme="genericidp" />
+106-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:42:21-48
+107            </intent-filter>
+108        </activity>
+109        <activity
+109-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:45:9-62:20
+110            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+110-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:46:13-79
+111            android:excludeFromRecents="true"
+111-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:47:13-46
+112            android:exported="true"
+112-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:48:13-36
+113            android:launchMode="singleTask"
+113-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:49:13-44
+114            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+114-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:50:13-72
+115            <intent-filter>
+115-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:51:13-61:29
+116                <action android:name="android.intent.action.VIEW" />
+116-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:34:17-69
+116-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:34:25-66
 117
-118                <data
-118-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:39:17-42:51
-119                    android:host="firebase.auth"
-119-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:40:21-49
-120                    android:path="/"
-120-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:41:21-37
-121                    android:scheme="recaptcha" />
-121-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:42:21-48
-122            </intent-filter>
-123        </activity>
-124        <activity
-124-->[com.google.android.gms:play-services-base:18.0.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\505aff209576914ebba5c153645308cb\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
-125            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-125-->[com.google.android.gms:play-services-base:18.0.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\505aff209576914ebba5c153645308cb\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:19-85
-126            android:exported="false"
-126-->[com.google.android.gms:play-services-base:18.0.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\505aff209576914ebba5c153645308cb\transformed\play-services-base-18.0.1\AndroidManifest.xml:22:19-43
-127            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-127-->[com.google.android.gms:play-services-base:18.0.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\505aff209576914ebba5c153645308cb\transformed\play-services-base-18.0.1\AndroidManifest.xml:21:19-78
-128
-129        <provider
-129-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:25:9-30:39
-130            android:name="com.google.firebase.provider.FirebaseInitProvider"
-130-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:26:13-77
-131            android:authorities="com.villageplanner.firebaseinitprovider"
-131-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:27:13-72
-132            android:directBootAware="true"
-132-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:28:13-43
-133            android:exported="false"
-133-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:29:13-37
-134            android:initOrder="100" />
-134-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:30:13-36
-135
-136        <meta-data
-136-->[com.google.android.gms:play-services-basement:18.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\f9cde0715c3b31c5e85fc9432e4c2735\transformed\play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
-137            android:name="com.google.android.gms.version"
-137-->[com.google.android.gms:play-services-basement:18.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\f9cde0715c3b31c5e85fc9432e4c2735\transformed\play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
-138            android:value="@integer/google_play_services_version" />
-138-->[com.google.android.gms:play-services-basement:18.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\f9cde0715c3b31c5e85fc9432e4c2735\transformed\play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
-139
-140        <provider
-140-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-141            android:name="androidx.startup.InitializationProvider"
-141-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-142            android:authorities="com.villageplanner.androidx-startup"
-142-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-143            android:exported="false" >
-143-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-144            <meta-data
-144-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-145                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-145-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-146                android:value="androidx.startup" />
-146-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+118                <category android:name="android.intent.category.DEFAULT" />
+118-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:36:17-76
+118-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:36:27-73
+119                <category android:name="android.intent.category.BROWSABLE" />
+119-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:37:17-78
+119-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:37:27-75
+120
+121                <data
+121-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:39:17-42:51
+122                    android:host="firebase.auth"
+122-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:40:21-49
+123                    android:path="/"
+123-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:41:21-37
+124                    android:scheme="recaptcha" />
+124-->[com.google.firebase:firebase-auth:21.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\b4f32f6ae25057d2d4ca5566e586f6a2\transformed\firebase-auth-21.1.0\AndroidManifest.xml:42:21-48
+125            </intent-filter>
+126        </activity>
+127        <activity
+127-->[com.google.android.gms:play-services-base:18.0.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\505aff209576914ebba5c153645308cb\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+128            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+128-->[com.google.android.gms:play-services-base:18.0.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\505aff209576914ebba5c153645308cb\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+129            android:exported="false"
+129-->[com.google.android.gms:play-services-base:18.0.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\505aff209576914ebba5c153645308cb\transformed\play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+130            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+130-->[com.google.android.gms:play-services-base:18.0.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\505aff209576914ebba5c153645308cb\transformed\play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+131
+132        <provider
+132-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:25:9-30:39
+133            android:name="com.google.firebase.provider.FirebaseInitProvider"
+133-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:26:13-77
+134            android:authorities="com.villageplanner.firebaseinitprovider"
+134-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:27:13-72
+135            android:directBootAware="true"
+135-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:28:13-43
+136            android:exported="false"
+136-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:29:13-37
+137            android:initOrder="100" />
+137-->[com.google.firebase:firebase-common:20.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\1c2a995c1200b053d13e8d65ceffdf12\transformed\firebase-common-20.2.0\AndroidManifest.xml:30:13-36
+138
+139        <meta-data
+139-->[com.google.android.gms:play-services-basement:18.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\f9cde0715c3b31c5e85fc9432e4c2735\transformed\play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+140            android:name="com.google.android.gms.version"
+140-->[com.google.android.gms:play-services-basement:18.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\f9cde0715c3b31c5e85fc9432e4c2735\transformed\play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+141            android:value="@integer/google_play_services_version" />
+141-->[com.google.android.gms:play-services-basement:18.1.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\f9cde0715c3b31c5e85fc9432e4c2735\transformed\play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+142
+143        <provider
+143-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+144            android:name="androidx.startup.InitializationProvider"
+144-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+145            android:authorities="com.villageplanner.androidx-startup"
+145-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+146            android:exported="false" >
+146-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
 147            <meta-data
-147-->[androidx.lifecycle:lifecycle-process:2.4.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\3205d564573d02219d5e11e9f03da3f5\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-148                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-148-->[androidx.lifecycle:lifecycle-process:2.4.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\3205d564573d02219d5e11e9f03da3f5\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+147-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+148                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+148-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
 149                android:value="androidx.startup" />
-149-->[androidx.lifecycle:lifecycle-process:2.4.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\3205d564573d02219d5e11e9f03da3f5\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-150        </provider>
-151
-152        <uses-library
-152-->[androidx.window:window:1.0.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\ecb209374b5dcec8bf486d031182520f\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
-153            android:name="androidx.window.extensions"
-153-->[androidx.window:window:1.0.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\ecb209374b5dcec8bf486d031182520f\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
-154            android:required="false" />
-154-->[androidx.window:window:1.0.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\ecb209374b5dcec8bf486d031182520f\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+149-->[androidx.emoji2:emoji2:1.2.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\6cc0b71d4da32c56ca485c292526d3d7\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+150            <meta-data
+150-->[androidx.lifecycle:lifecycle-process:2.4.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\3205d564573d02219d5e11e9f03da3f5\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+151                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+151-->[androidx.lifecycle:lifecycle-process:2.4.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\3205d564573d02219d5e11e9f03da3f5\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+152                android:value="androidx.startup" />
+152-->[androidx.lifecycle:lifecycle-process:2.4.1] D:\Tony\Computer Science\.gradle\caches\transforms-3\3205d564573d02219d5e11e9f03da3f5\transformed\lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+153        </provider>
+154
 155        <uses-library
-155-->[androidx.window:window:1.0.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\ecb209374b5dcec8bf486d031182520f\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
-156            android:name="androidx.window.sidecar"
-156-->[androidx.window:window:1.0.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\ecb209374b5dcec8bf486d031182520f\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+155-->[androidx.window:window:1.0.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\ecb209374b5dcec8bf486d031182520f\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+156            android:name="androidx.window.extensions"
+156-->[androidx.window:window:1.0.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\ecb209374b5dcec8bf486d031182520f\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
 157            android:required="false" />
-157-->[androidx.window:window:1.0.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\ecb209374b5dcec8bf486d031182520f\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
-158    </application>
-159
-160</manifest>
+157-->[androidx.window:window:1.0.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\ecb209374b5dcec8bf486d031182520f\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+158        <uses-library
+158-->[androidx.window:window:1.0.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\ecb209374b5dcec8bf486d031182520f\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+159            android:name="androidx.window.sidecar"
+159-->[androidx.window:window:1.0.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\ecb209374b5dcec8bf486d031182520f\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+160            android:required="false" />
+160-->[androidx.window:window:1.0.0] D:\Tony\Computer Science\.gradle\caches\transforms-3\ecb209374b5dcec8bf486d031182520f\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+161    </application>
+162
+163</manifest>

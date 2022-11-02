@@ -4,25 +4,37 @@ package com.villageplanner.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewbinding.ViewBinding;
+import androidx.viewbinding.ViewBindings;
 import com.villageplanner.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class ActivityRemindersBinding implements ViewBinding {
   @NonNull
-  private final CoordinatorLayout rootView;
+  private final LinearLayout rootView;
 
-  private ActivityRemindersBinding(@NonNull CoordinatorLayout rootView) {
+  @NonNull
+  public final Button addReminder;
+
+  @NonNull
+  public final LinearLayout reminders;
+
+  private ActivityRemindersBinding(@NonNull LinearLayout rootView, @NonNull Button addReminder,
+      @NonNull LinearLayout reminders) {
     this.rootView = rootView;
+    this.addReminder = addReminder;
+    this.reminders = reminders;
   }
 
   @Override
   @NonNull
-  public CoordinatorLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -43,10 +55,25 @@ public final class ActivityRemindersBinding implements ViewBinding {
 
   @NonNull
   public static ActivityRemindersBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.addReminder;
+      Button addReminder = ViewBindings.findChildViewById(rootView, id);
+      if (addReminder == null) {
+        break missingId;
+      }
 
-    return new ActivityRemindersBinding((CoordinatorLayout) rootView);
+      id = R.id.reminders;
+      LinearLayout reminders = ViewBindings.findChildViewById(rootView, id);
+      if (reminders == null) {
+        break missingId;
+      }
+
+      return new ActivityRemindersBinding((LinearLayout) rootView, addReminder, reminders);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

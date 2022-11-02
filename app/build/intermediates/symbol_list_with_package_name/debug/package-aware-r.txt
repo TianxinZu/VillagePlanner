@@ -2833,6 +2833,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id addReminder
 id adjust_height
 id adjust_width
 id alertTitle
@@ -2870,6 +2871,7 @@ id browser_actions_menu_items
 id browser_actions_menu_view
 id buttonPanel
 id cache_measures
+id calendarView
 id callMeasure
 id cancel_button
 id carryVelocity
@@ -2967,6 +2969,7 @@ id flip
 id floating
 id forever
 id fragment_container_view_tag
+id frequencyText
 id frost
 id fullscreen_header
 id ghost_view
@@ -2984,6 +2987,7 @@ id home
 id homeAsUp
 id honorRequest
 id horizontal_only
+id hourAndMinuteText
 id hybrid
 id icon
 id icon_group
@@ -3075,6 +3079,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id nameText
 id nav_controller_view_tag
 id nav_graph
 id nav_host_fragment_container
@@ -3124,6 +3129,7 @@ id radio
 id ratio
 id rectangles
 id register
+id reminders
 id reverseSawtooth
 id right
 id rightToLeft
@@ -3192,6 +3198,7 @@ id startVertical
 id staticLayout
 id staticPostLayout
 id stop
+id storeNameText
 id stretch
 id submenuarrow
 id submit_area
@@ -3392,6 +3399,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_add_reminder
 layout activity_reminders
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row

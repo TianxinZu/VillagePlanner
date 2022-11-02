@@ -2832,6 +2832,7 @@ int id action_text 0x7f08004a
 int id actions 0x7f08004b
 int id activity_chooser_view_content 0x7f08004c
 int id add 0x7f08004d
+int id addReminder 0x7f080202
 int id adjust_height 0x7f08004e
 int id adjust_width 0x7f08004f
 int id alertTitle 0x7f080050
@@ -2869,6 +2870,7 @@ int id browser_actions_menu_items 0x7f08006f
 int id browser_actions_menu_view 0x7f080070
 int id buttonPanel 0x7f080071
 int id cache_measures 0x7f080072
+int id calendarView 0x7f080207
 int id callMeasure 0x7f080073
 int id cancel_button 0x7f080074
 int id carryVelocity 0x7f080075
@@ -2966,6 +2968,7 @@ int id flip 0x7f0800d0
 int id floating 0x7f0800d1
 int id forever 0x7f0800d2
 int id fragment_container_view_tag 0x7f0800d3
+int id frequencyText 0x7f080203
 int id frost 0x7f0800d4
 int id fullscreen_header 0x7f0800d5
 int id ghost_view 0x7f0800d6
@@ -2983,6 +2986,7 @@ int id home 0x7f0800e1
 int id homeAsUp 0x7f0800e2
 int id honorRequest 0x7f0800e3
 int id horizontal_only 0x7f0800e4
+int id hourAndMinuteText 0x7f080206
 int id hybrid 0x7f0800e5
 int id icon 0x7f0800e6
 int id icon_group 0x7f0800e7
@@ -3074,6 +3078,7 @@ int id mtrl_picker_text_input_range_start 0x7f08013c
 int id mtrl_picker_title_text 0x7f08013d
 int id mtrl_view_tag_bottom_padding 0x7f08013e
 int id multiply 0x7f08013f
+int id nameText 0x7f080204
 int id nav_controller_view_tag 0x7f080140
 int id nav_graph 0x7f080141
 int id nav_host_fragment_container 0x7f080142
@@ -3123,6 +3128,7 @@ int id radio 0x7f08016d
 int id ratio 0x7f08016e
 int id rectangles 0x7f08016f
 int id register 0x7f080170
+int id reminders 0x7f080201
 int id reverseSawtooth 0x7f080171
 int id right 0x7f080172
 int id rightToLeft 0x7f080173
@@ -3191,6 +3197,7 @@ int id startVertical 0x7f0801b1
 int id staticLayout 0x7f0801b2
 int id staticPostLayout 0x7f0801b3
 int id stop 0x7f0801b4
+int id storeNameText 0x7f080205
 int id stretch 0x7f0801b5
 int id submenuarrow 0x7f0801b6
 int id submit_area 0x7f0801b7
@@ -3391,6 +3398,7 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0b0018
 int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
+int layout activity_add_reminder 0x7f0b006d
 int layout activity_reminders 0x7f0b001c
 int layout browser_actions_context_menu_page 0x7f0b001d
 int layout browser_actions_context_menu_row 0x7f0b001e

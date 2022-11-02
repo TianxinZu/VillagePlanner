@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical"
+    tools:context=".AddReminderActivity">
+
+    <EditText
+        android:id="@+id/nameText"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Reminder's Name: e.g. Eat" />
+
+    <EditText
+        android:id="@+id/storeNameText"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Store Name: e.g. DULCE" />
+
+    <EditText
+        android:id="@+id/frequencyText"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="(Optional) You Can Set Up a Frequency" />
+
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:background="#FFF"
+        android:layout_width="wrap_content"
+        android:layout_height="320dp"
+        android:layout_gravity="center"
+        >
+    </CalendarView>
+
+    <EditText
+        android:id="@+id/hourAndMinuteText"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Exact Time in HH:MM: e.g. 19:20" />
+
+    <Button
+        android:id="@+id/addReminder"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="ADD TO YOUR REMINDERS!"
+        android:onClick="addReminder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"></Button>
+</LinearLayout>

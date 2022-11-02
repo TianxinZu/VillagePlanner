@@ -41,6 +41,9 @@
         android:theme="@style/Theme.VillagePlanner"
         android:usesCleartextTraffic="true" >
         <activity
+            android:name="com.villageplanner.AddReminderActivity"
+            android:exported="false" />
+        <activity
             android:name="com.villageplanner.RemindersActivity"
             android:exported="false"
             android:label="@string/title_activity_reminders"

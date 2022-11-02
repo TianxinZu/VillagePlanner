@@ -7,9 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,6 +30,8 @@ public class RemindersActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         root = FirebaseDatabase.getInstance();
 
+        LinearLayout reminders = findViewById(R.id.reminders);
+
         if (auth.getCurrentUser() == null) {
             Intent intent = new Intent(RemindersActivity.this, LoginActivity.class);
             startActivity(intent);
@@ -43,9 +46,20 @@ public class RemindersActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Reminder reminder = snapshot.getValue(Reminder.class);
-                    System.out.println(reminder.getUnixTimestamp());
-                    System.out.println(reminder.getName());
+                    TextView textView = new TextView(RemindersActivity.this);
+                    textView.setText(String.format("%s at %s, at time %s", reminder.getName(),
+                            reminder.getStore().getName(), reminder.getDateTimeString()));
+                    reminders.addView(textView);
                 }
+                Button button = new Button(RemindersActivity.this);
+                button.setText("ADD A REMINDER");
+                reminders.addView(button);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        addReminder();
+                    }
+                });
             }
 
             @Override
@@ -53,6 +67,11 @@ public class RemindersActivity extends AppCompatActivity {
                 throw error.toException();
             }
         });
+    }
+
+    public void addReminder() {
+        Intent intent = new Intent(RemindersActivity.this, AddReminderActivity.class);
+        startActivity(intent);
     }
 
 }

@@ -39,9 +39,13 @@ public class Reminder {
     * Month Day of Month, Year
     */
     public String getDateTimeString() {
-        LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(unixTimestamp), TimeZone.getDefault().toZoneId());
-        return String.format("%d:%d\n%s %d, %d", dateTime.getHour(), dateTime.getMinute(),
-                dateTime.getMonth(), dateTime.getDayOfMonth(), dateTime.getYear());
+        LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(unixTimestamp), TimeZone.getDefault().toZoneId());
+        String hourString = String.valueOf(dateTime.getHour());
+        hourString = hourString.length() == 1 ? "0" + hourString : hourString;
+        String minuteString = String.valueOf(dateTime.getMinute());
+        minuteString = minuteString.length() == 1 ? "0" + minuteString : minuteString;
+        return String.format("%s:%s\n%s %d, %d", hourString, minuteString, dateTime.getMonth(),
+                dateTime.getDayOfMonth(), dateTime.getYear());
     }
 
     public Store getStore() {

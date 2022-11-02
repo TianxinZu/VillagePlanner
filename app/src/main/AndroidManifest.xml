@@ -23,6 +23,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="32">
         <activity
+            android:name=".AddReminderActivity"
+            android:exported="false" />
+        <activity
             android:name=".RemindersActivity"
             android:exported="false"
             android:label="@string/title_activity_reminders"
@@ -34,7 +37,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".LandPageActivity"
             android:exported="true">
@@ -46,10 +49,10 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
