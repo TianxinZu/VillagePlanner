@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -17,7 +18,7 @@ import java.lang.String;
 
 public final class ActivityRemindersBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final ScrollView rootView;
 
   @NonNull
   public final Button addReminder;
@@ -25,7 +26,7 @@ public final class ActivityRemindersBinding implements ViewBinding {
   @NonNull
   public final LinearLayout reminders;
 
-  private ActivityRemindersBinding(@NonNull LinearLayout rootView, @NonNull Button addReminder,
+  private ActivityRemindersBinding(@NonNull ScrollView rootView, @NonNull Button addReminder,
       @NonNull LinearLayout reminders) {
     this.rootView = rootView;
     this.addReminder = addReminder;
@@ -34,7 +35,7 @@ public final class ActivityRemindersBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public ScrollView getRoot() {
     return rootView;
   }
 
@@ -71,7 +72,7 @@ public final class ActivityRemindersBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityRemindersBinding((LinearLayout) rootView, addReminder, reminders);
+      return new ActivityRemindersBinding((ScrollView) rootView, addReminder, reminders);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

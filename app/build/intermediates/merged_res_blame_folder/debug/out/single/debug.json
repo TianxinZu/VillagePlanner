@@ -8,10 +8,6 @@
         "source": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-main-49:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "com.villageplanner.app-merged_res-47:/layout_activity_add_reminder.xml.flat",
-        "source": "com.villageplanner.app-main-49:/layout/activity_add_reminder.xml"
-    },
-    {
         "merged": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-merged_res-47:\\mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-main-49:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
@@ -94,5 +90,9 @@
     {
         "merged": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-merged_res-47:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
         "source": "D:\\Tony\\Computer Science\\.gradle\\daemon\\7.3.3\\com.villageplanner.app-main-49:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.villageplanner.app-merged_res-47:/layout_activity_reminders.xml.flat",
+        "source": "com.villageplanner.app-main-49:/layout/activity_reminders.xml"
     }
 ]

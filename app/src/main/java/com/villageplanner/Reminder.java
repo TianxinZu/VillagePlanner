@@ -38,7 +38,7 @@ public class Reminder {
     * Hour:Minute
     * Month Day of Month, Year
     */
-    public String getDateTimeString() {
+    public String toDateTimeString() {
         LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(unixTimestamp), TimeZone.getDefault().toZoneId());
         String hourString = String.valueOf(dateTime.getHour());
         hourString = hourString.length() == 1 ? "0" + hourString : hourString;

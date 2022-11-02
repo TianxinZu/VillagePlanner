@@ -48,18 +48,18 @@ public class RemindersActivity extends AppCompatActivity {
                     Reminder reminder = snapshot.getValue(Reminder.class);
                     TextView textView = new TextView(RemindersActivity.this);
                     textView.setText(String.format("%s at %s, at time %s", reminder.getName(),
-                            reminder.getStore().getName(), reminder.getDateTimeString()));
+                            reminder.getStore().getName(), reminder.toDateTimeString()));
                     reminders.addView(textView);
                 }
-                Button button = new Button(RemindersActivity.this);
-                button.setText("ADD A REMINDER");
-                reminders.addView(button);
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        addReminder();
-                    }
-                });
+//                Button button = new Button(RemindersActivity.this);
+//                button.setText("ADD A REMINDER");
+//                reminders.addView(button);
+//                button.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        addReminder();
+//                    }
+//                });
             }
 
             @Override
@@ -69,7 +69,7 @@ public class RemindersActivity extends AppCompatActivity {
         });
     }
 
-    public void addReminder() {
+    public void addReminder(View view) {
         Intent intent = new Intent(RemindersActivity.this, AddReminderActivity.class);
         startActivity(intent);
     }
