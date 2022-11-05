@@ -16,6 +16,9 @@
         <entry key="..\:/USC/Fall2022/csci310/VillagePlanner/app/src/main/res/layout/login_page.xml" value="0.27219202898550726" />
         <entry key="..\:/USC/Fall2022/csci310/VillagePlanner/app/src/main/res/layout/main_page.xml" value="0.278125" />
         <entry key="..\:/USC/Fall2022/csci310/VillagePlanner/app/src/main/res/layout/register_page.xml" value="0.27219202898550726" />
+        <entry key="app/src/main/res/layout/activity_add_reminder.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_reminders.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/main_page.xml" value="0.3098958333333333" />
       </map>
     </option>
   </component>

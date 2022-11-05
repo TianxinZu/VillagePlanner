@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 import java.util.TimeZone;
 
 public class Notification {
-    private boolean running;
+    private boolean running = false;
     private FirebaseAuth auth;
     private FirebaseDatabase root;
     final String USER_TABLE = "Users";
@@ -30,23 +30,22 @@ public class Notification {
 
     public String getContent(){return content;}
 
-    public void runTimer(){
-
+    public boolean runTimer(){
+//
         if (auth.getCurrentUser() == null) {
             //should not come in
         }
         else {
             userid = auth.getCurrentUser().getUid();
         }
-
-        final Handler handler = new Handler();
-
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                // hardcode running !!!!!!!!
-                running = true;
-                if(running){
+//
+//        final Handler handler = new Handler();
+//
+//        handler.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                // hardcode running !!!!!!!!
+//                if(running){
                     root.getReference(USER_TABLE).child(userid).child("reminders").addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -54,24 +53,24 @@ public class Notification {
                                 Reminder reminder = snapshot.getValue(Reminder.class);
                                 if(reminder.shouldSentOut(reminder.getStore().getUnixTimestamp(), reminder.getStore().getWaiting_time())&& !reminder.sented){
                                     reminder.sented = true;
-                                    running = false;
                                     content = "If you want to arrive "+reminder.getStore().getName()+" on time, you should leave now.";
                                     content +="There is "+ reminder.getStore().getWaiting_time() +" min to wait and "+reminder.getStore().getUnixTimestamp() + " min to walk there\n";
-                                    return ;
+                                    running = true;
+                                    break;
                                 }
                             }
                         }
-
+//
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
                             throw error.toException();
                         }
                     });
-                }
-                handler.postDelayed(this,1000);
-            }
-        });
-
+//                }
+//                handler.postDelayed(this,1000);
+//            }
+//        });
+        return running;
     }
 
 }
