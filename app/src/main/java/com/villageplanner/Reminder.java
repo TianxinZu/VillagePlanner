@@ -10,6 +10,7 @@ public class Reminder {
     long unixTimestamp;
     private Store store;
     private Integer frequency;
+    boolean sented = false;
 
     public Reminder() {
         this.name = "";
@@ -61,7 +62,7 @@ public class Reminder {
     * @param  queueTime  - number of minutes of the queue time
     * @return            - a Boolean representing whether the user should set out now
     */
-    public Boolean shouldSetOut(Integer arriveTime,Integer queueTime) {
+    public Boolean shouldSentOut(Integer arriveTime,Integer queueTime) {
         LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(unixTimestamp), TimeZone.getDefault().toZoneId());
         return Duration.between(LocalDateTime.now(), dateTime).toMinutes() <= arriveTime + queueTime;
     }

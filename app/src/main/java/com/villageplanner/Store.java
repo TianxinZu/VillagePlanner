@@ -5,7 +5,8 @@ import com.google.android.gms.maps.model.LatLng;
 public class Store {
     private String name;
     LatLng latlng;
-    long unixTimestamp = -1;
+    int unixTimestamp = -1;
+    int wait_time;
 
     public Store() {
 
@@ -24,8 +25,14 @@ public class Store {
 
     public LatLng getLatLng(){ return this.latlng; }
 
-    public void setUnixTimestamp(long time){
+    public void setUnixTimestamp(int time){
         unixTimestamp = time;
     }
+
+    public int getWaiting_time() {
+        return wait_time;
+    }
+
+    public int getUnixTimestamp(){return unixTimestamp;}
 
 }

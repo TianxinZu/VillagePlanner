@@ -4,8 +4,10 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -48,6 +50,15 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapAPI);
         mapFragment.getMapAsync(this);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+        while(true){
+            Notification ntf = new Notification();
+            ntf.runTimer();
+            String content = ntf.getContent();
+            ConstraintLayout notification = findViewById(R.id.NotificationID);
+            TextView textView = new TextView(MainActivity.this);
+            textView.setText(content);
+            notification.addView(textView);
+        }
     }
 
     @Override
