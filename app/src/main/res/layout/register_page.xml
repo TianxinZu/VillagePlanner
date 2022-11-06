@@ -38,6 +38,19 @@
         android:hint="(Optional) Set a avatar by typing image url" />
 
     <Button
+        android:id="@+id/uploadPicture"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:text="(OPTIONAL) YOU CAN UPLOAD YOUR AVATAR HERE"
+        android:onClick="uploadPicture"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </Button>
+
+    <Button
         android:id="@+id/register"
         android:layout_width="150dp"
         android:layout_height="wrap_content"

@@ -1,5 +1,6 @@
 package com.villageplanner;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -7,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,6 +17,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.Priority;
@@ -31,6 +34,11 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.CancellationToken;
 import com.google.android.gms.tasks.OnTokenCanceledListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.json.JSONObject;
 
@@ -57,6 +65,11 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     private LatLng USCVillage;
     public ArrayList<Store> allStore;
     final Handler overallHandler = new Handler();
+    private FirebaseAuth auth;
+    private FirebaseDatabase root;
+    private String userid;
+    final String USER_TABLE = "Users";
+    ImageView avatar;
 
     public interface GetCurrentLocation {
         void onComplete(LatLng currentLocation);
@@ -153,6 +166,33 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
+
+        // Get current user avatar
+        auth = FirebaseAuth.getInstance();
+        root = FirebaseDatabase.getInstance();
+        avatar = findViewById(R.id.avatar);
+        if (auth.getCurrentUser() == null) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
+        else {
+            userid = auth.getCurrentUser().getUid();
+        }
+        root.getReference(USER_TABLE).child(userid).child("imageUrl").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String imageUrl = (String) dataSnapshot.getValue();
+                if (imageUrl.isEmpty()) {
+                    imageUrl = "http://www.gravatar.com/avatar/?d=mp";
+                }
+                Glide.with(MainActivity.this).load(imageUrl).into(avatar);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                throw error.toException();
+            }
+        });
 
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapAPI);
         mapFragment.getMapAsync(this);
