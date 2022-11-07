@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -65,7 +66,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     private LatLng targetLocation;
     private LatLng USCVillage;
     public ArrayList<Store> allStore;
-    final Handler overallHandler = new Handler();
     private FirebaseAuth auth;
     private FirebaseDatabase root;
     private String userid;
@@ -201,6 +201,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         allStore = new ArrayList<Store>();
         setStoreInformation();
         USCVillage = new LatLng(34.02676429367275, -118.28502793334087);
+        runTimer();
     }
 
     @Override
@@ -241,21 +242,59 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         });
     }
 
-    public void runMultiTime(){
-        overallHandler.post(new Runnable() {
+    public void runTimer(){
+        auth = FirebaseAuth.getInstance();
+        root = FirebaseDatabase.getInstance();
+        if (auth.getCurrentUser() == null) {
+            //should not come in
+            Log.d("Run multiple time", "should not comit in with auth issue");
+        }
+        else {
+            userid = auth.getCurrentUser().getUid();
+        }
+        root.getReference(USER_TABLE).child(userid).child("reminders").addValueEventListener(new ValueEventListener() {
             @Override
-            public void run() {
-                Notification ntf = new Notification();
-                while(!ntf.runTimer()){
-                    overallHandler.postDelayed(this,1000);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String content = null;
+                TextView textView = findViewById(R.id.NotificationID);
+                Log.d("Run multiple time", "This is a message by lla in runtimer in Notification");
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Reminder reminder = snapshot.getValue(Reminder.class);
+                    if(reminder.shouldSentOut(reminder.getStore().getWalking_time(), reminder.getStore().getWaiting_time())&& !reminder.sented){
+                        Log.d("Run multiple time", "should sent out");
+                        reminder.sented = true;
+                        content = "If you want to arrive "+reminder.getStore().getName()+" on time, you should leave now.\n";
+                        content +="You need "+ reminder.getStore().getWaiting_time() +" min to wait and "+reminder.getStore().getWalking_time() + " min to walk there\n";
+                        textView.setText(content);
+                        break;
+                    }
                 }
-                String content = ntf.getContent();
-                TextView notification = findViewById(R.id.NotificationID);
-                notification.setText(content);
-                overallHandler.postDelayed(this,5000);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                throw error.toException();
             }
         });
     }
+
+//    public void runMultiTime(){
+////        final Handler overallHandler = new Handler();
+////        overallHandler.post(new Runnable() {
+////            @Override
+////            public void run() {
+////                Log.d("Run multiple time", "This is my message");
+//                Notification ntf = new Notification();
+////                while(!ntf.runTimer()){
+////                    overallHandler.postDelayed(this,1000);
+////                }
+//                ntf.runTimer();
+//                String content = ntf.getContent();
+//                TextView notification = findViewById(R.id.NotificationID);
+//                notification.setText(content);
+//                overallHandler.postDelayed(this,5000);
+//            }
+////        });
+//    }
 
     private void getLocationPermission() {
         /*
@@ -320,38 +359,47 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     private void setStoreInformation(){
         LatLng l = new LatLng(34.02509105209718, -118.28452043192465);
         Store s = new Store("CAVA", l);
+        s.setWalking_time(5);
         allStore.add(s);
 
         LatLng l1 = new LatLng(34.025503176232014, -118.28535818258696);
         Store s1 = new Store("Dulce", l1);
+        s.setWalking_time(5);
         allStore.add(s1);
 
         LatLng l2 = new LatLng(34.02502880426814, -118.28534289035802);
         Store s2 = new Store("Insomnia Cookies", l2);
+        s.setWalking_time(5);
         allStore.add(s2);
 
         LatLng l3 = new LatLng(34.02466780225075, -118.28569566468875);
         Store s3 = new Store("SUPAMU", l3);
+        s.setWalking_time(5);
         allStore.add(s3);
 
         LatLng l4 = new LatLng(34.02455900049386, -118.28538935242644);
         Store s4 = new Store("Sunlife Organics", l4);
+        s.setWalking_time(5);
         allStore.add(s4);
 
         LatLng l5 = new LatLng(34.0242612207765, -118.28420760939493);
         Store s5 = new Store("Rock & Reilly's", l5);
+        s.setWalking_time(5);
         allStore.add(s5);
 
         LatLng l6 = new LatLng(34.02460072922757, -118.2840309620744);
         Store s6 = new Store("Chinese Street Food", l6);
+        s.setWalking_time(5);
         allStore.add(s6);
 
         LatLng l7 = new LatLng(34.024786259294224, -118.28470557210025);
         Store s7 = new Store("Stout Burgers & Beers", l7);
+        s.setWalking_time(5);
         allStore.add(s7);
 
         LatLng l8 = new LatLng(34.024738299179795, -118.2852476966357);
         Store s8 = new Store("Greenleaf Kitchen & Cocktails", l8);
+        s.setWalking_time(5);
         allStore.add(s8);
     }
 

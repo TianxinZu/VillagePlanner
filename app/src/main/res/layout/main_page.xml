@@ -12,29 +12,31 @@
         android:layout_height="100dp"
         android:scaleType="fitStart"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp"></ImageView>
+        tools:layout_editor_absoluteX="16dp"></ImageView>
 
     <Button
         android:id="@+id/goToReminders"
-        android:layout_width="227dp"
+        android:layout_width="80dp"
         android:layout_height="97dp"
         android:layout_gravity="right"
         android:onClick="goToReminders"
         android:text="YOUR REMINDERS"
+        android:textSize="7.3dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></Button>
 
     <TextView
-        android:layout_width="300dp"
-        android:layout_height="50dp"
         android:id="@+id/NotificationID"
+        android:layout_width="230dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintLeft_toRightOf="@+id/goToReminders"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="25dp"/>
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <fragment
         android:id="@+id/mapAPI"
