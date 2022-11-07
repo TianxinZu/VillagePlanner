@@ -10,9 +10,21 @@
         android:id="@+id/avatar"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:scaleType="fitStart"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="fitStart">
-    </ImageView>
+        tools:layout_editor_absoluteX="0dp"></ImageView>
+
+    <Button
+        android:id="@+id/goToReminders"
+        android:layout_width="227dp"
+        android:layout_height="97dp"
+        android:layout_gravity="right"
+        android:onClick="goToReminders"
+        android:text="YOUR REMINDERS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></Button>
 
     <TextView
         android:layout_width="300dp"

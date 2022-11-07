@@ -97,7 +97,6 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            System.out.println();
                             // After adding user to authentication, also add to user table
                             User user = new User(email, username, imageUrl);
                             root.getReference(USER_TABLE).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).
@@ -150,7 +149,6 @@ public class RegisterActivity extends AppCompatActivity {
         pd.setTitle("Uploading Image...");
         pd.show();
         final String randomKey = UUID.randomUUID().toString();
-        System.out.println(storage.getReference().child("images/" + randomKey));
         StorageReference reference = storage.getReference().child("images/" + randomKey);
         UploadTask uploadTask = reference.putFile(imageUri);
         Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {

@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -413,5 +414,10 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             urlConnection.disconnect();
         }
         return data;
+    }
+
+    public void goToReminders(View view) {
+        Intent intent = new Intent(MainActivity.this, RemindersActivity.class);
+        startActivity(intent);
     }
 }
