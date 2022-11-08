@@ -279,7 +279,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Reminder reminder = snapshot.getValue(Reminder.class);
                     Log.d("into for", reminder.getName());
-                    if(reminder.shouldSentOut(reminder.getStore().getWalking_time(),reminder.getStore().getWaiting_time()) && snapshot.child("sented").getValue(Boolean.class) ){
+                    if(reminder.shouldSentOut(reminder.getStore().getWalking_time(),reminder.getStore().getWaiting_time()) && !snapshot.child("sented").getValue(Boolean.class) ){
                         Log.d("Run multiple time", "should sent out");
                         root.getReference(USER_TABLE).child(userid).child("reminders").child(snapshot.getKey()).child("sented").setValue(true);
                         running = true;
