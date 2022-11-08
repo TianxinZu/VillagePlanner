@@ -22,8 +22,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:text="Add A Reminder"
+            android:text="Add A REMINDER"
             android:onClick="addReminder"></Button>
+
+        <Button
+            android:id="@+id/returnToHome"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:text="RETURN TO HOME PAGE"
+            android:onClick="returnToHome"></Button>
+
 
     </LinearLayout>
 </ScrollView>

@@ -103,4 +103,8 @@ public class RemindersActivity extends AppCompatActivity {
         });
     }
 
+    public void returnToHome(View view) {
+        Intent intent = new Intent(RemindersActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
 }
