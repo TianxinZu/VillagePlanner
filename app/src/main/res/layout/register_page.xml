@@ -30,13 +30,6 @@
         android:layout_height="wrap_content"
         android:hint="Your secret password" />
 
-    <EditText
-        android:id="@+id/imageUrlText"
-        android:inputType="textUri"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="(Optional) Set a avatar by typing image url" />
-
     <Button
         android:id="@+id/uploadPicture"
         android:layout_width="150dp"
