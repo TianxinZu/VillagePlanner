@@ -44,6 +44,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -168,7 +170,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             button.setVisibility(View.VISIBLE);
 
             // Drawing polyline in the Google Map for the i-th route
-            mapAPI.addPolyline(lineOptions);
+            setPoly(mapAPI.addPolyline(lineOptions));
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
             builder.include(currentLocation);
             builder.include(targetLocation);
@@ -443,6 +445,10 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         startActivity(intent);
     }
 
+    public void setPoly(Polyline p) {
+        poly = p;
+    }
+
     public void cancelRoute(View view) {
         Button button = findViewById(R.id.cancelButton);
         button.setVisibility(View.INVISIBLE);
@@ -453,5 +459,20 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             marker.setVisible(true);
         }
         mapAPI.animateCamera(CameraUpdateFactory.newLatLngBounds(bound, 200), 1500, null);
+    }
+
+    public int getRouteTime(String name) throws IOException, JSONException {
+        LatLng destination = AllStores.stores.get(name).getLatLng();
+        String url = getDirectionsUrl(currentLocation, destination);
+        String route = downloadUrl(url);
+        final JSONObject json = new JSONObject(route);
+        JSONArray routeArray = json.getJSONArray("routes");
+        JSONObject routes = routeArray.getJSONObject(0);
+
+        JSONArray legsArray = routes.getJSONArray("legs");
+        JSONObject newDisTimeOb = legsArray.getJSONObject(0);
+
+        JSONObject timeOb = newDisTimeOb.getJSONObject("duration");
+        return Integer.valueOf(timeOb.getString("text"));
     }
 }
