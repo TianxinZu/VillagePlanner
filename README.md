@@ -2,8 +2,8 @@
 
 ## Features
 * Register/Login your account with customized avatar by uploading your photo from photos library or Google Drive ![upload avatar](/assets/upload_avatar.png?raw=true "Title")
-* Create/Cancel a reminder that contains restaurant name, event name, and time to arrive at that restaurant. A notification will be automatically sent to you once walking time to restaurant + estimated queue time in restaurant exceeds reminder's time - current time to remind you to set out![add reminder](/assets/add_reminder.png?raw=true
-* Don't worry about not knowing how to go to your designated restaruant, we got that covered for you! Just click on the restaurant on map to show the route from your current location to restaurant
+* Create/Cancel a reminder that contains restaurant name, event name, and time to arrive at that restaurant. A notification will be automatically sent to you once walking time to restaurant + estimated queue time in restaurant exceeds reminder's time - current time to remind you to set out ![add reminder](/assets/add_reminder.png?raw=true
+* Don't worry about not knowing how to go to your designated restaruant, we got that covered for you! Just click on the restaurant on map to show the route from your current location to restaurant ![route](/assets/route.png?raw=true
 
 ## Requirements
 * Device = `PIXEL 2 API 26`
