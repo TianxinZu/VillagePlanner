@@ -1,8 +1,5 @@
 # VillagePlanner
 
-Show Usage Here
-
-
 ## Requirements
 * Device = `PIXEL 2 API 26`
 * Emulator version = `31.3.13`
@@ -10,7 +7,7 @@ Show Usage Here
 * Our app requires the user to be connected to Firebase for authentication, database, and file storage reasons: referring to Connecting to Firebase below
 
 ## Connecting to Firebase
-* Please go to `Tools`->`Firebase in Android Studio`
+* Please go to `Tools`->`Firebase` in Android Studio
   * Click `Authentication`->`Authenticate using a custom authentication system`->`Connect your app to Firebase`, a green check mark means it's all set
   * Click `Real Database`->`Get Started with Realtime Database`->`Connect your app to Firebase`, a green check mark means it's all set
   * Click `Cloud Storage for Database`->`Get Started with Cloud Storage`->`Connect your app to Firebase`, a green check mark means it's all set
