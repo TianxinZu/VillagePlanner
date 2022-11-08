@@ -57,6 +57,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -79,6 +80,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     ImageView avatar;
     boolean running = true;
     int seconds = 0;
+    int routeTime;
 
     public interface GetCurrentLocation {
         void onComplete(LatLng currentLocation);
@@ -287,6 +289,10 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                         e.printStackTrace();
                     } catch (JSONException e) {
                         e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                     if(reminder.shouldSentOut(walking_time,reminder.getStore().getWaiting_time()) && !snapshot.child("sented").getValue(Boolean.class) ){
                         Log.d("Run multiple time", "should sent out");
@@ -415,34 +421,39 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         String data = "";
         InputStream iStream = null;
         HttpURLConnection urlConnection = null;
-        try {
-            URL url = new URL(strUrl);
+        while (data.isEmpty()) {
+            try {
+                URL url = new URL(strUrl);
 
-            urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection = (HttpURLConnection) url.openConnection();
 
-            urlConnection.connect();
+                urlConnection.connect();
 
-            iStream = urlConnection.getInputStream();
+                iStream = urlConnection.getInputStream();
 
-            BufferedReader br = new BufferedReader(new InputStreamReader(iStream));
+                BufferedReader br = new BufferedReader(new InputStreamReader(iStream));
 
-            StringBuffer sb = new StringBuffer();
+                StringBuffer sb = new StringBuffer();
 
-            String line = "";
-            while ((line = br.readLine()) != null) {
-                sb.append(line);
+                String line = "";
+                while ((line = br.readLine()) != null) {
+                    sb.append(line);
+                }
+
+                data = sb.toString();
+
+                br.close();
+
+            } catch (Exception e) {
+                Log.d("Exception", e.toString());
+            } finally {
+                if (iStream != null) {
+                    iStream.close();
+                }
+                urlConnection.disconnect();
             }
-
-            data = sb.toString();
-
-            br.close();
-
-        } catch (Exception e) {
-            Log.d("Exception", e.toString());
-        } finally {
-            iStream.close();
-            urlConnection.disconnect();
         }
+
         return data;
     }
 
@@ -466,21 +477,74 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         mapAPI.animateCamera(CameraUpdateFactory.newLatLngBounds(bound, 200), 1500, null);
     }
 
-    public int getRouteTime(String name) throws IOException, JSONException {
+    private class WalkTimeTask extends AsyncTask<String, Integer, String> {
+
+        private String storeName;
+
+        public WalkTimeTask(String name) {
+            storeName = name;
+        }
+
+        @Override
+        protected String doInBackground(String... url) {
+
+            String data = "";
+
+            try {
+                data = downloadUrl(url[0]);
+            } catch (Exception e) {
+                Log.d("Background Task", e.toString());
+            }
+            return data;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+
+            LatLng destination = AllStores.stores.get(storeName).getLatLng();
+            String url = getDirectionsUrl(currentLocation, destination);
+            JSONObject timeOb = null;
+            try {
+                final JSONObject json = new JSONObject(result);
+                JSONArray routeArray = json.getJSONArray("routes");
+                JSONObject routes = routeArray.getJSONObject(0);
+
+                JSONArray legsArray = routes.getJSONArray("legs");
+                JSONObject newDisTimeOb = legsArray.getJSONObject(0);
+
+                timeOb = newDisTimeOb.getJSONObject("duration");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
+                routeTime = Integer.valueOf(timeOb.getString("value")) / 60;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public int getRouteTime(String name) throws IOException, JSONException, ExecutionException, InterruptedException {
+//        LatLng destination = AllStores.stores.get(name).getLatLng();
+//        String url = getDirectionsUrl(currentLocation, destination);
+//        System.out.println("url");
+//        System.out.println(url);
+//        String route = downloadUrl(url);
+//        System.out.println(route);
+//        final JSONObject json = new JSONObject(route);
+//        JSONArray routeArray = json.getJSONArray("routes");
+//        JSONObject routes = routeArray.getJSONObject(0);
+//
+//        JSONArray legsArray = routes.getJSONArray("legs");
+//        JSONObject newDisTimeOb = legsArray.getJSONObject(0);
+//
+//        JSONObject timeOb = newDisTimeOb.getJSONObject("duration");
+//        return Integer.valueOf(timeOb.getString("value")) / 60;
+        WalkTimeTask t = new WalkTimeTask(name);
         LatLng destination = AllStores.stores.get(name).getLatLng();
         String url = getDirectionsUrl(currentLocation, destination);
-        System.out.println("url");
-        System.out.println(url);
-        String route = downloadUrl(url);
-        System.out.println(route);
-        final JSONObject json = new JSONObject(route);
-        JSONArray routeArray = json.getJSONArray("routes");
-        JSONObject routes = routeArray.getJSONObject(0);
-
-        JSONArray legsArray = routes.getJSONArray("legs");
-        JSONObject newDisTimeOb = legsArray.getJSONObject(0);
-
-        JSONObject timeOb = newDisTimeOb.getJSONObject("duration");
-        return Integer.valueOf(timeOb.getString("value")) / 60;
+        t.execute(url).get();
+        return routeTime;
     }
 }
