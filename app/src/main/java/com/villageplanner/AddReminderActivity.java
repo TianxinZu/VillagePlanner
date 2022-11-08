@@ -74,7 +74,7 @@ public class AddReminderActivity extends AppCompatActivity {
             System.out.println(sented);
 //            Log.d("Add sented", sented);
             Reminder reminder = new Reminder(name, dateTime.toInstant(OffsetDateTime.now().getOffset()).getEpochSecond(),
-                    AllStores.stores.get(storeName), frequency);
+                    AllStores.stores.get(storeName), frequency, sented);
             root.getReference(USER_TABLE).child(userid).child("reminders").push().setValue(reminder);
             Intent intent = new Intent(AddReminderActivity.this, RemindersActivity.class);
             startActivity(intent);

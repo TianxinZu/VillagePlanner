@@ -66,7 +66,7 @@ public class Reminder {
     * @return            - a Boolean representing whether the user should set out now
     */
     public Boolean shouldSentOut(Integer arriveTime,Integer queueTime) {
-        LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(unixTimestamp), TimeZone.getDefault().toZoneId());
+        LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(unixTimestamp), TimeZone.getDefault().toZoneId());
 
         return Duration.between(LocalDateTime.now(), dateTime).toMinutes() <= arriveTime + queueTime;
     }
