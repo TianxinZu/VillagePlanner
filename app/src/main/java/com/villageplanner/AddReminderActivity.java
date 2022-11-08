@@ -68,11 +68,7 @@ public class AddReminderActivity extends AppCompatActivity {
         String hourAndMinute = hourAndMinuteText.getText().toString();
         Integer frequency = frequencyString.isEmpty() ? 0 : Integer.valueOf(frequencyString);
         Boolean sented = false;
-//        Log.d("before valid", sented);
         if (isValid(name, storeName, frequencyString, hourAndMinute)) {
-            System.out.println("sented");
-            System.out.println(sented);
-//            Log.d("Add sented", sented);
             Reminder reminder = new Reminder(name, dateTime.toInstant(OffsetDateTime.now().getOffset()).getEpochSecond(),
                     AllStores.stores.get(storeName), frequency, sented);
             root.getReference(USER_TABLE).child(userid).child("reminders").push().setValue(reminder);

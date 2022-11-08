@@ -69,7 +69,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     private LatLng currentLocation;
     private LatLng targetLocation;
     private LatLng USCVillage;
-//    public ArrayList<Store> allStore;
     private ArrayList<Marker> markers;
     private LatLngBounds bound;
     private Polyline poly;
@@ -215,6 +214,15 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
         AllStores.initiate();
+        for(String s:AllStores.stores.keySet()){
+            try {
+                AllStores.stores.get(s).setWalking_time(getRouteTime(s));
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapAPI);
         mapFragment.getMapAsync(this);
         markers = new ArrayList<>();
@@ -344,8 +352,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
          * Get the best and most recent location of the device, which may be null in rare
          * cases when a location is not available.
          */
-        System.out.println("permission");
-        System.out.println(locationPermissionGranted);
         try {
             if (locationPermissionGranted) {
                 Task<Location> locationResult = fusedLocationProviderClient.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, new CancellationToken() {
@@ -361,8 +367,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                 });
                 locationResult.addOnCompleteListener(this, task -> {
-                    System.out.println("task successful");
-                    System.out.println(task.isSuccessful());
                     if (task.isSuccessful()) {
                         // Set the map's camera position to the current location of the device.
                         Location current = task.getResult();
@@ -383,7 +387,8 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private String getDirectionsUrl(LatLng origin, LatLng dest) {
-
+        System.out.println(origin == null);
+        System.out.println(dest.toString());
         // Origin of route
         String str_origin = "origin=" + origin.latitude + "," + origin.longitude;
 
@@ -467,6 +472,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng destination = AllStores.stores.get(name).getLatLng();
         String url = getDirectionsUrl(currentLocation, destination);
         String route = downloadUrl(url);
+        System.out.println(route);
         final JSONObject json = new JSONObject(route);
         JSONArray routeArray = json.getJSONArray("routes");
         JSONObject routes = routeArray.getJSONObject(0);
