@@ -67,7 +67,7 @@ public class AddReminderActivity extends AppCompatActivity {
         Integer frequency = frequencyString.isEmpty() ? 0 : Integer.valueOf(frequencyString);
         if (isValid(name, storeName, frequencyString, hourAndMinute)) {
             Reminder reminder = new Reminder(name, dateTime.toInstant(OffsetDateTime.now().getOffset()).getEpochSecond(),
-                    new Store(storeName), frequency);
+                    AllStores.stores.get(storeName), frequency);
             root.getReference(USER_TABLE).child(userid).child("reminders").push().setValue(reminder);
             Intent intent = new Intent(AddReminderActivity.this, RemindersActivity.class);
             startActivity(intent);

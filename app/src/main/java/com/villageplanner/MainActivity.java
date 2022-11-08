@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,6 +33,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.CancellationToken;
 import com.google.android.gms.tasks.OnTokenCanceledListener;
@@ -65,7 +67,10 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     private LatLng currentLocation;
     private LatLng targetLocation;
     private LatLng USCVillage;
-    public ArrayList<Store> allStore;
+//    public ArrayList<Store> allStore;
+    private ArrayList<Marker> markers;
+    private LatLngBounds bound;
+    private Polyline poly;
     private FirebaseAuth auth;
     private FirebaseDatabase root;
     private String userid;
@@ -152,8 +157,16 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
             }
 
+            for (Marker m : markers) {
+                if (!m.getPosition().equals(targetLocation)) {
+                    m.setVisible(false);
+                }
+            }
+            Button button = findViewById(R.id.cancelButton);
+            button.setVisibility(View.VISIBLE);
+
             // Drawing polyline in the Google Map for the i-th route
-            mapAPI.addPolyline(lineOptions);
+            poly = mapAPI.addPolyline(lineOptions);
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
             builder.include(currentLocation);
             builder.include(targetLocation);
@@ -195,11 +208,11 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
+        AllStores.initiate();
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapAPI);
         mapFragment.getMapAsync(this);
+        markers = new ArrayList<>();
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
-        allStore = new ArrayList<Store>();
-        setStoreInformation();
         USCVillage = new LatLng(34.02676429367275, -118.28502793334087);
         runTimer();
     }
@@ -214,9 +227,10 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
             builder.include(USCVillage);
             builder.include(currentLocation);
-            LatLngBounds bound = builder.build();
-            for(int i = 0;i<allStore.size();i++){
-                mapAPI.addMarker(new MarkerOptions().position(allStore.get(i).getLatLng()).title(allStore.get(i).getName()));
+            bound = builder.build();
+            for(String name : AllStores.stores.keySet()) {
+                MarkerOptions mo = new MarkerOptions().position(AllStores.stores.get(name).getLatLng()).title(name);
+                markers.add(mapAPI.addMarker(mo));
             }
             mapAPI.animateCamera(CameraUpdateFactory.newLatLngBounds(bound, 200), 1500, null);
         });
@@ -228,6 +242,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 if (markerName == "Current Location") {
                     return false;
                 }
+
                 targetLocation = marker.getPosition();
                 // Getting URL to the Google Directions API
                 String url = getDirectionsUrl(currentLocation, targetLocation);
@@ -276,25 +291,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
     }
-
-//    public void runMultiTime(){
-////        final Handler overallHandler = new Handler();
-////        overallHandler.post(new Runnable() {
-////            @Override
-////            public void run() {
-////                Log.d("Run multiple time", "This is my message");
-//                Notification ntf = new Notification();
-////                while(!ntf.runTimer()){
-////                    overallHandler.postDelayed(this,1000);
-////                }
-//                ntf.runTimer();
-//                String content = ntf.getContent();
-//                TextView notification = findViewById(R.id.NotificationID);
-//                notification.setText(content);
-//                overallHandler.postDelayed(this,5000);
-//            }
-////        });
-//    }
 
     private void getLocationPermission() {
         /*
@@ -355,52 +351,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         } catch (SecurityException e)  {
             Log.e("Exception: %s", e.getMessage(), e);
         }
-    }
-    private void setStoreInformation(){
-        LatLng l = new LatLng(34.02509105209718, -118.28452043192465);
-        Store s = new Store("CAVA", l);
-        s.setWalking_time(5);
-        allStore.add(s);
-
-        LatLng l1 = new LatLng(34.025503176232014, -118.28535818258696);
-        Store s1 = new Store("Dulce", l1);
-        s.setWalking_time(5);
-        allStore.add(s1);
-
-        LatLng l2 = new LatLng(34.02502880426814, -118.28534289035802);
-        Store s2 = new Store("Insomnia Cookies", l2);
-        s.setWalking_time(5);
-        allStore.add(s2);
-
-        LatLng l3 = new LatLng(34.02466780225075, -118.28569566468875);
-        Store s3 = new Store("SUPAMU", l3);
-        s.setWalking_time(5);
-        allStore.add(s3);
-
-        LatLng l4 = new LatLng(34.02455900049386, -118.28538935242644);
-        Store s4 = new Store("Sunlife Organics", l4);
-        s.setWalking_time(5);
-        allStore.add(s4);
-
-        LatLng l5 = new LatLng(34.0242612207765, -118.28420760939493);
-        Store s5 = new Store("Rock & Reilly's", l5);
-        s.setWalking_time(5);
-        allStore.add(s5);
-
-        LatLng l6 = new LatLng(34.02460072922757, -118.2840309620744);
-        Store s6 = new Store("Chinese Street Food", l6);
-        s.setWalking_time(5);
-        allStore.add(s6);
-
-        LatLng l7 = new LatLng(34.024786259294224, -118.28470557210025);
-        Store s7 = new Store("Stout Burgers & Beers", l7);
-        s.setWalking_time(5);
-        allStore.add(s7);
-
-        LatLng l8 = new LatLng(34.024738299179795, -118.2852476966357);
-        Store s8 = new Store("Greenleaf Kitchen & Cocktails", l8);
-        s.setWalking_time(5);
-        allStore.add(s8);
     }
 
     private String getDirectionsUrl(LatLng origin, LatLng dest) {
@@ -467,5 +417,17 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     public void goToReminders(View view) {
         Intent intent = new Intent(MainActivity.this, RemindersActivity.class);
         startActivity(intent);
+    }
+
+    public void cancelRoute(View view) {
+        Button button = findViewById(R.id.cancelButton);
+        button.setVisibility(View.INVISIBLE);
+        poly.remove();
+        mapAPI.addMarker(new MarkerOptions().position(currentLocation).title("Current Location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
+        for (Marker marker : markers) {
+            System.out.println(marker.getTitle());
+            marker.setVisible(true);
+        }
+        mapAPI.animateCamera(CameraUpdateFactory.newLatLngBounds(bound, 200), 1500, null);
     }
 }
