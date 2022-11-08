@@ -76,6 +76,8 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     private String userid;
     final String USER_TABLE = "Users";
     ImageView avatar;
+    boolean running = true;
+    int seconds = 0;
 
     public interface GetCurrentLocation {
         void onComplete(LatLng currentLocation);
@@ -166,7 +168,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             button.setVisibility(View.VISIBLE);
 
             // Drawing polyline in the Google Map for the i-th route
-            poly = mapAPI.addPolyline(lineOptions);
+            mapAPI.addPolyline(lineOptions);
             LatLngBounds.Builder builder = new LatLngBounds.Builder();
             builder.include(currentLocation);
             builder.include(targetLocation);
@@ -242,7 +244,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 if (markerName == "Current Location") {
                     return false;
                 }
-
                 targetLocation = marker.getPosition();
                 // Getting URL to the Google Directions API
                 String url = getDirectionsUrl(currentLocation, targetLocation);
@@ -275,12 +276,15 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 Log.d("Run multiple time", "This is a message by lla in runtimer in Notification");
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Reminder reminder = snapshot.getValue(Reminder.class);
-                    if(reminder.shouldSentOut(reminder.getStore().getWalking_time(), reminder.getStore().getWaiting_time())&& !reminder.sented){
+                    Log.d("into for", reminder.getName());
+                    if(reminder.shouldSentOut(reminder.getStore().getWalking_time(),reminder.getStore().getWaiting_time()) && snapshot.child("sented").getValue(Boolean.class) ){
                         Log.d("Run multiple time", "should sent out");
-                        reminder.sented = true;
+                        root.getReference(USER_TABLE).child(userid).child("reminders").child(snapshot.getKey()).child("sented").setValue(true);
+                        running = true;
                         content = "If you want to arrive "+reminder.getStore().getName()+" on time, you should leave now.\n";
                         content +="You need "+ reminder.getStore().getWaiting_time() +" min to wait and "+reminder.getStore().getWalking_time() + " min to walk there\n";
                         textView.setText(content);
+                        cancelNotificationClock();
                         break;
                     }
                 }
@@ -290,6 +294,26 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 throw error.toException();
             }
         });
+    }
+
+    private void cancelNotificationClock(){
+        final Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                if(running){
+                    seconds++;
+                }
+                if(seconds == 100){
+                    running = false;
+                    seconds = 0;
+                    TextView textView = findViewById(R.id.NotificationID);
+                    textView.setText("");
+                }
+                handler.postDelayed(this,1000);
+            }
+        });
+
     }
 
     private void getLocationPermission() {

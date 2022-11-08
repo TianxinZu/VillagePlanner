@@ -10,7 +10,7 @@ public class Reminder {
     long unixTimestamp;
     private Store store;
     private Integer frequency;
-    boolean sented = false;
+    Boolean sented = false;
 
     public Reminder() {
         this.name = "";
@@ -19,11 +19,12 @@ public class Reminder {
         this.frequency = 0;
     }
 
-    public Reminder(String name, long unixTimestamp, Store store, Integer frequency) {
+    public Reminder(String name, long unixTimestamp, Store store, Integer frequency, boolean sented) {
         this.name = name;
         this.unixTimestamp = unixTimestamp;
         this.store = store;
         this.frequency = frequency;
+        this.sented = sented;
     }
 
     public String getName() {
@@ -56,6 +57,8 @@ public class Reminder {
     public Integer getFrequency() {
         return this.frequency;
     }
+
+    public Boolean getSented() { return this.sented;}
 
     /*
     * @param  arriveTime - number of minutes to walk to the store, calculated via Google Maps API
