@@ -9,7 +9,7 @@
         <entry key="..\:/Tony/USC/CSCI 310/VillagePlanner/app/src/main/res/layout/activity_reminders.xml" value="0.25" />
         <entry key="..\:/Tony/USC/CSCI 310/VillagePlanner/app/src/main/res/layout/land_page.xml" value="0.1" />
         <entry key="..\:/Tony/USC/CSCI 310/VillagePlanner/app/src/main/res/layout/login_page.xml" value="0.25416666666666665" />
-        <entry key="..\:/Tony/USC/CSCI 310/VillagePlanner/app/src/main/res/layout/main_page.xml" value="0.23647604327666152" />
+        <entry key="..\:/Tony/USC/CSCI 310/VillagePlanner/app/src/main/res/layout/main_page.xml" value="0.11302083333333333" />
         <entry key="..\:/Tony/USC/CSCI 310/VillagePlanner/app/src/main/res/layout/register_page.xml" value="0.25" />
         <entry key="..\:/USC/Fall2022/csci310/VillagePlanner/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.144" />
         <entry key="..\:/USC/Fall2022/csci310/VillagePlanner/app/src/main/res/drawable/ic_launcher_background.xml" value="0.144" />
@@ -18,6 +18,10 @@
         <entry key="..\:/USC/Fall2022/csci310/VillagePlanner/app/src/main/res/layout/login_page.xml" value="0.27219202898550726" />
         <entry key="..\:/USC/Fall2022/csci310/VillagePlanner/app/src/main/res/layout/main_page.xml" value="0.20168066580377575" />
         <entry key="..\:/USC/Fall2022/csci310/VillagePlanner/app/src/main/res/layout/register_page.xml" value="0.27219202898550726" />
+        <entry key="app/src/main/res/layout/activity_add_reminder.xml" value="0.3411458333333333" />
+        <entry key="app/src/main/res/layout/activity_reminders.xml" value="0.2667572463768116" />
+        <entry key="app/src/main/res/layout/main_page.xml" value="0.4145614624023437" />
+        <entry key="app/src/main/res/layout/register_page.xml" value="0.3098958333333333" />
       </map>
     </option>
   </component>
