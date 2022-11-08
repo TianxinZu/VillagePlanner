@@ -67,7 +67,7 @@ public class Reminder {
     */
     public Boolean shouldSentOut(Integer arriveTime,Integer queueTime) {
         LocalDateTime dateTime = LocalDateTime.ofInstant(Instant.ofEpochSecond(unixTimestamp), TimeZone.getDefault().toZoneId());
-
+        if(LocalDateTime.now().isAfter(dateTime)) return false;
         return Duration.between(LocalDateTime.now(), dateTime).toMinutes() <= arriveTime + queueTime;
     }
 }

@@ -282,7 +282,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Reminder reminder = snapshot.getValue(Reminder.class);
                     Log.d("into for", reminder.getName());
-                    int walking_time = 0;
+                    int walking_time = 6;
                     try {
                         walking_time = getRouteTime(reminder.getStore().getName());
                     } catch (IOException e) {
@@ -321,7 +321,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 if(running){
                     seconds++;
                 }
-                if(seconds == 100){
+                if(seconds == 10){
                     running = false;
                     seconds = 0;
                     TextView textView = findViewById(R.id.NotificationID);
