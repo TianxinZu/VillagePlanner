@@ -481,6 +481,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         JSONObject newDisTimeOb = legsArray.getJSONObject(0);
 
         JSONObject timeOb = newDisTimeOb.getJSONObject("duration");
-        return Integer.valueOf(timeOb.getString("text"));
+        return Integer.valueOf(timeOb.getString("value")) / 60;
     }
 }
