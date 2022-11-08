@@ -5,7 +5,7 @@ import com.google.android.gms.maps.model.LatLng;
 public class Store {
     private String name;
     LatLng latlng;
-    int walking_time = 5;
+    int walking_time = 8;
     int wait_time = 5;
 
     public Store() {
