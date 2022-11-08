@@ -136,7 +136,6 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         protected void onPostExecute(List<List<HashMap<String, String>>> result) {
             ArrayList points;
             PolylineOptions lineOptions = new PolylineOptions();
-//            MarkerOptions markerOptions = new MarkerOptions();
 
             for (int i = 0; i < result.size(); i++) {
                 points = new ArrayList();
@@ -164,6 +163,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             for (Marker m : markers) {
                 if (!m.getPosition().equals(targetLocation)) {
                     m.setVisible(false);
+                }
+                if (m.getPosition().equals(targetLocation)) {
+                    m.showInfoWindow();
                 }
             }
             Button button = findViewById(R.id.cancelButton);
@@ -233,8 +235,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             builder.include(currentLocation);
             bound = builder.build();
             for(String name : AllStores.stores.keySet()) {
-                MarkerOptions mo = new MarkerOptions().position(AllStores.stores.get(name).getLatLng()).title(name);
-                markers.add(mapAPI.addMarker(mo));
+                MarkerOptions mo = new MarkerOptions().position(AllStores.stores.get(name).getLatLng()).title(name).snippet("Queue Time: " + String.valueOf(AllStores.stores.get(name).getWaiting_time()) + " min");
+                Marker m = mapAPI.addMarker(mo);
+                markers.add(m);
             }
             mapAPI.animateCamera(CameraUpdateFactory.newLatLngBounds(bound, 200), 1500, null);
         });
@@ -453,10 +456,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         Button button = findViewById(R.id.cancelButton);
         button.setVisibility(View.INVISIBLE);
         poly.remove();
-        mapAPI.addMarker(new MarkerOptions().position(currentLocation).title("Current Location").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
         for (Marker marker : markers) {
-            System.out.println(marker.getTitle());
             marker.setVisible(true);
+            marker.hideInfoWindow();
         }
         mapAPI.animateCamera(CameraUpdateFactory.newLatLngBounds(bound, 200), 1500, null);
     }
