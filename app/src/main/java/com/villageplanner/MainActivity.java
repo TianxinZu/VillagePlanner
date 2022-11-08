@@ -214,21 +214,11 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         });
 
         AllStores.initiate();
-        for(String s:AllStores.stores.keySet()){
-            try {
-                AllStores.stores.get(s).setWalking_time(getRouteTime(s));
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
         mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapAPI);
         mapFragment.getMapAsync(this);
         markers = new ArrayList<>();
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         USCVillage = new LatLng(34.02676429367275, -118.28502793334087);
-        runTimer();
     }
 
     @Override
@@ -248,8 +238,8 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 markers.add(m);
             }
             mapAPI.animateCamera(CameraUpdateFactory.newLatLngBounds(bound, 200), 1500, null);
+            runTimer();
         });
-
         mapAPI.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker) {
@@ -290,12 +280,20 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Reminder reminder = snapshot.getValue(Reminder.class);
                     Log.d("into for", reminder.getName());
-                    if(reminder.shouldSentOut(reminder.getStore().getWalking_time(),reminder.getStore().getWaiting_time()) && !snapshot.child("sented").getValue(Boolean.class) ){
+                    int walking_time = 0;
+                    try {
+                        walking_time = getRouteTime(reminder.getStore().getName());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if(reminder.shouldSentOut(walking_time,reminder.getStore().getWaiting_time()) && !snapshot.child("sented").getValue(Boolean.class) ){
                         Log.d("Run multiple time", "should sent out");
                         root.getReference(USER_TABLE).child(userid).child("reminders").child(snapshot.getKey()).child("sented").setValue(true);
                         running = true;
                         content = "If you want to arrive "+reminder.getStore().getName()+" on time, you should leave now.\n";
-                        content +="You need "+ reminder.getStore().getWaiting_time() +" min to wait and "+reminder.getStore().getWalking_time() + " min to walk there\n";
+                        content +="You need "+ reminder.getStore().getWaiting_time() +" min to wait and "+walking_time + " min to walk there\n";
                         textView.setText(content);
                         cancelNotificationClock();
                         break;
@@ -471,6 +469,8 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     public int getRouteTime(String name) throws IOException, JSONException {
         LatLng destination = AllStores.stores.get(name).getLatLng();
         String url = getDirectionsUrl(currentLocation, destination);
+        System.out.println("url");
+        System.out.println(url);
         String route = downloadUrl(url);
         System.out.println(route);
         final JSONObject json = new JSONObject(route);
