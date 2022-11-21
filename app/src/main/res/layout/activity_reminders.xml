@@ -34,6 +34,5 @@
             android:text="RETURN TO HOME PAGE"
             android:onClick="returnToHome"></Button>
 
-
     </LinearLayout>
 </ScrollView>

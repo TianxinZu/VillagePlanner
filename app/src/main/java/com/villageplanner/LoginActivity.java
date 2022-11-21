@@ -32,10 +32,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        EditText emailText = findViewById(R.id.emailText);
+        EditText emailText = findViewById(R.id.emailTextLogin);
         String email = emailText.getText().toString().trim();
 
-        EditText passwordText = findViewById(R.id.passwordText);
+        EditText passwordText = findViewById(R.id.passwordTextLogin);
         String password = passwordText.getText().toString().trim();
 
         if (email.isEmpty()) {

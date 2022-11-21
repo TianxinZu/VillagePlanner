@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.CalendarView;
 import android.widget.EditText;
@@ -49,6 +50,7 @@ public class AddReminderActivity extends AppCompatActivity {
         userid = auth.getCurrentUser().getUid();
 
         calendarView = findViewById(R.id.calendarView);
+        calendarView.setClickable(true);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
@@ -58,6 +60,18 @@ public class AddReminderActivity extends AppCompatActivity {
     }
 
     public void addReminder(View view) {
+        calendarView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                System.out.println(event.getX());
+                System.out.println(event.getY());
+                return true;
+            }
+        });
+        int[] location = new int[2];
+        calendarView.getLocationInWindow(location);
+        System.out.println(location[0]);
+        System.out.println(location[1]);
         nameText = findViewById(R.id.nameText);
         storeNameText = findViewById(R.id.storeNameText);
         frequencyText = findViewById(R.id.frequencyText);
@@ -121,8 +135,8 @@ public class AddReminderActivity extends AppCompatActivity {
         System.out.println(dateTime);
         dateTime = dateTime.plusHours(Integer.valueOf(hour));
         dateTime = dateTime.plusMinutes(Integer.valueOf(minute));
-        if (Duration.between(LocalDateTime.now(), dateTime).toMinutes() < 10) {
-            hourAndMinuteText.setError("You have to set a reminder at least 10 minutes later!");
+        if (Duration.between(LocalDateTime.now(), dateTime).toMinutes() < 0) {
+            hourAndMinuteText.setError("You can not set a reminder before the current time!");
             hourAndMinuteText.requestFocus();
             dateTime = dateTime.minusHours(Integer.valueOf(hour));
             dateTime = dateTime.minusMinutes(Integer.valueOf(minute));
