@@ -46,7 +46,7 @@
         android:hint="Exact Time in HH:MM: e.g. 19:20" />
 
     <Button
-        android:id="@+id/addReminder"
+        android:id="@+id/addReminder2"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

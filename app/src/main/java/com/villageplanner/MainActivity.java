@@ -3,6 +3,7 @@ package com.villageplanner;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.RenderNode;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,9 +13,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -57,6 +58,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -65,6 +67,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     GoogleMap mapAPI;
     SupportMapFragment mapFragment;
     private FusedLocationProviderClient fusedLocationProviderClient;
+    Reminder _reminder = new Reminder("EAT", 1668742060, new Store("CAVA", new LatLng(34.02509105209718, -118.28452043192465)), 0, false);
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private boolean locationPermissionGranted;
     private LatLng currentLocation;
@@ -137,7 +140,19 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         protected void onPostExecute(List<List<HashMap<String, String>>> result) {
             ArrayList points;
             PolylineOptions lineOptions = new PolylineOptions();
-
+            int walkingTime = 0;
+            try {
+                walkingTime = getRouteTime(_reminder.getStore().getName());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            // System.out.print(walkingTime);
             for (int i = 0; i < result.size(); i++) {
                 points = new ArrayList();
                 lineOptions = new PolylineOptions();
@@ -160,6 +175,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 lineOptions.geodesic(true);
 
             }
+            _reminder.shouldSentOut(walkingTime, 5);
 
             for (Marker m : markers) {
                 if (!m.getPosition().equals(targetLocation)) {
@@ -264,6 +280,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     public void runTimer(){
+        Random store = new Random();
         auth = FirebaseAuth.getInstance();
         root = FirebaseDatabase.getInstance();
         if (auth.getCurrentUser() == null) {
@@ -282,24 +299,15 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Reminder reminder = snapshot.getValue(Reminder.class);
                     Log.d("into for", reminder.getName());
-                    int walking_time = 6;
-                    try {
-                        walking_time = getRouteTime(reminder.getStore().getName());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    if(reminder.shouldSentOut(walking_time,reminder.getStore().getWaiting_time()) && !snapshot.child("sented").getValue(Boolean.class) ){
+                    int walking_time = store.nextInt(2) + 4;
+                    if(reminder.shouldSentOut(walking_time,reminder.getStore().getWaiting_time())){
                         Log.d("Run multiple time", "should sent out");
                         root.getReference(USER_TABLE).child(userid).child("reminders").child(snapshot.getKey()).child("sented").setValue(true);
                         running = true;
-                        content = "If you want to arrive "+reminder.getStore().getName()+" on time, you should leave now.\n";
+                        content = "If you want to arrive "+reminder.getStore().getName()+" on time,\nyou should leave now.\n";
                         content +="You need "+ reminder.getStore().getWaiting_time() +" min to wait and "+walking_time + " min to walk there\n";
+                        System.out.println(content);
+
                         textView.setText(content);
                         cancelNotificationClock();
                         break;
@@ -546,5 +554,12 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         String url = getDirectionsUrl(currentLocation, destination);
         t.execute(url).get();
         return routeTime;
+    }
+
+    public void signOut(View view) {
+        auth.signOut();
+        Toast.makeText(MainActivity.this, "Successfully signed out!", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(MainActivity.this, LandPageActivity.class);
+        startActivity(intent);
     }
 }

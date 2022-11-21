@@ -19,7 +19,7 @@ public class Reminder {
         this.frequency = 0;
     }
 
-    public Reminder(String name, long unixTimestamp, Store store, Integer frequency, boolean sented) {
+    public Reminder(String name, long unixTimestamp, Store store, Integer frequency, Boolean sented) {
         this.name = name;
         this.unixTimestamp = unixTimestamp;
         this.store = store;

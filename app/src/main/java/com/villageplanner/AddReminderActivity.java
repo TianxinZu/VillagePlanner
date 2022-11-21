@@ -23,9 +23,9 @@ public class AddReminderActivity extends AppCompatActivity {
     private String userid;
     final String USER_TABLE = "Users";
     EditText nameText;
+    Boolean sented = false;
     EditText storeNameText;
     EditText frequencyText;
-//    Boolean sented = true;
     EditText hourAndMinuteText;
     CalendarView calendarView;
     LocalDateTime now = LocalDateTime.now();
@@ -67,11 +67,14 @@ public class AddReminderActivity extends AppCompatActivity {
         String frequencyString = frequencyText.getText().toString();
         String hourAndMinute = hourAndMinuteText.getText().toString();
         Integer frequency = frequencyString.isEmpty() ? 0 : Integer.valueOf(frequencyString);
-        Boolean sented = false;
         if (isValid(name, storeName, frequencyString, hourAndMinute)) {
             Reminder reminder = new Reminder(name, dateTime.toInstant(OffsetDateTime.now().getOffset()).getEpochSecond(),
-                    AllStores.stores.get(storeName), frequency, sented);
+                    AllStores.stores.get(storeName), frequency, false);
             root.getReference(USER_TABLE).child(userid).child("reminders").push().setValue(reminder);
+//            try {
+//                Thread.sleep(5000);
+//            }
+//            catch (Exception e) {}
             Intent intent = new Intent(AddReminderActivity.this, RemindersActivity.class);
             startActivity(intent);
         }
