@@ -66,12 +66,13 @@ public class DeleteReminderTest {
                 .perform(click());
         wait(3000);
         LinearLayout reminders = getActivityInstance().findViewById(R.id.reminders);
+        int prevCount = reminders.getChildCount();
         RelativeLayout entry = (RelativeLayout) reminders.getChildAt(0);
         Button delete = (Button) entry.getChildAt(1);
         delete.callOnClick();
-        wait(1000);
-        // b always has 1 reminder, after deleting the only one it becomes 0
-        assertEquals(reminders.getChildCount(), 0);
+        wait(3000);
+        // b always has prevCount reminders, after deleting one it should have prevCount - 1 reminders
+        assertEquals(reminders.getChildCount(), prevCount - 1);
         onView(withId(R.id.addReminder))
                 .perform(click());
         wait(3000);
