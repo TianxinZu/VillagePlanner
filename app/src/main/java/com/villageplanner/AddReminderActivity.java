@@ -47,6 +47,10 @@ public class AddReminderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_reminder);
         auth = FirebaseAuth.getInstance();
         root = FirebaseDatabase.getInstance();
+        if (auth.getCurrentUser() == null) {
+            Intent intent = new Intent(AddReminderActivity.this, LandPageActivity.class);
+            startActivity(intent);
+        }
         userid = auth.getCurrentUser().getUid();
 
         calendarView = findViewById(R.id.calendarView);

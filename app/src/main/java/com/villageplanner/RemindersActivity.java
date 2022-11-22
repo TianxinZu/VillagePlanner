@@ -38,7 +38,7 @@ public class RemindersActivity extends AppCompatActivity {
         LinearLayout reminders = findViewById(R.id.reminders);
 
         if (auth.getCurrentUser() == null) {
-            Intent intent = new Intent(RemindersActivity.this, LoginActivity.class);
+            Intent intent = new Intent(RemindersActivity.this, LandPageActivity.class);
             startActivity(intent);
         }
         else {

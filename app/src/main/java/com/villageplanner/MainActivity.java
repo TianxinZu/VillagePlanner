@@ -209,7 +209,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         root = FirebaseDatabase.getInstance();
         avatar = findViewById(R.id.avatar);
         if (auth.getCurrentUser() == null) {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            Intent intent = new Intent(MainActivity.this, LandPageActivity.class);
             startActivity(intent);
         }
         else {
