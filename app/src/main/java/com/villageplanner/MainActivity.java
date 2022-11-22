@@ -222,7 +222,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 if (imageUrl.isEmpty()) {
                     imageUrl = "http://www.gravatar.com/avatar/?d=mp";
                 }
-                Glide.with(MainActivity.this).load(imageUrl).into(avatar);
+                Glide.with(getApplicationContext()).load(imageUrl).into(avatar);
             }
 
             @Override
@@ -398,9 +398,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    private String getDirectionsUrl(LatLng origin, LatLng dest) {
-        System.out.println(origin == null);
-        System.out.println(dest.toString());
+    public static String getDirectionsUrl(LatLng origin, LatLng dest) {
+//        System.out.println(origin == null);
+//        System.out.println(dest.toString());
         // Origin of route
         String str_origin = "origin=" + origin.latitude + "," + origin.longitude;
 
@@ -425,7 +425,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         return url;
     }
 
-    private String downloadUrl(String strUrl) throws IOException {
+    public String downloadUrl(String strUrl) throws IOException {
         String data = "";
         InputStream iStream = null;
         HttpURLConnection urlConnection = null;
@@ -527,6 +527,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             }
             try {
                 routeTime = Integer.valueOf(timeOb.getString("value")) / 60;
+                System.out.println("In async: " + storeName + " " + String.valueOf(routeTime));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -553,6 +554,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng destination = AllStores.stores.get(name).getLatLng();
         String url = getDirectionsUrl(currentLocation, destination);
         t.execute(url).get();
+        Thread.sleep(1000);
+        System.out.println("route time: ");
+        System.out.println(routeTime);
         return routeTime;
     }
 

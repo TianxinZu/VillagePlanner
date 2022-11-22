@@ -47,7 +47,7 @@ public class RegisterSuccessTest {
                 .perform(typeText(PASSWORD), closeSoftKeyboard());
         onView(withId(R.id.register))
                 .perform(click());
-        wait(3000);
+        wait(5000);
         intended(hasComponent(MainActivity.class.getName()));
     }
 }
