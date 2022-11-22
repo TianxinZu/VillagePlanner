@@ -65,6 +65,8 @@ public class AddReminderSuccessTest {
         onView(withId(R.id.goToReminders))
                 .perform(click());
         wait(3000);
+        LinearLayout reminders = getActivityInstance().findViewById(R.id.reminders);
+        int prevCount = reminders.getChildCount();
         onView(withId(R.id.addReminder))
                 .perform(click());
         wait(3000);
@@ -78,10 +80,12 @@ public class AddReminderSuccessTest {
                 .perform(click());
         wait(3000);
         // Delete after test add so a could be reused
-        LinearLayout reminders = getActivityInstance().findViewById(R.id.reminders);
-        assertEquals(reminders.getChildCount(), 1);
+        reminders = getActivityInstance().findViewById(R.id.reminders);
+        // a always has prevCount reminders, after adding one it should have prevCount + 1 reminders
+        assertEquals(reminders.getChildCount(), prevCount + 1);
         RelativeLayout entry = (RelativeLayout) reminders.getChildAt(0);
         Button delete = (Button) entry.getChildAt(1);
         delete.callOnClick();
+        wait(3000);
     }
 }
