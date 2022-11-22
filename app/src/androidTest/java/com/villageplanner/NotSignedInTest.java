@@ -1,22 +1,24 @@
 package com.villageplanner;
 
-import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
+import androidx.test.rule.ActivityTestRule;
+import androidx.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static androidx.test.espresso.intent.Intents.intended;
-import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static androidx.test.InstrumentationRegistry.getInstrumentation;
+import static androidx.test.runner.lifecycle.Stage.RESUMED;
 
-import android.content.Intent;
-import android.util.Log;
+import static org.junit.Assert.assertEquals;
+
+import android.app.Activity;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Collection;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
@@ -27,20 +29,35 @@ public class NotSignedInTest {
         while (System.currentTimeMillis() < end);
     }
 
-    @Rule
-    public IntentsTestRule<MainActivity> intentsTestRule
-            = new IntentsTestRule<>(MainActivity.class, true, false);
+    static Activity currentActivity;
 
-    @Before
-    public void signOut() {
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            FirebaseAuth.getInstance().signOut();
-        }
+    public static Activity getActivityInstance(){
+        getInstrumentation().runOnMainSync(() -> {
+            Collection<Activity> resumedActivities =
+                    ActivityLifecycleMonitorRegistry.getInstance().getActivitiesInStage(RESUMED);
+            if (resumedActivities.iterator().hasNext()){
+                currentActivity = resumedActivities.iterator().next();
+            }
+        });
+        return currentActivity;
     }
 
+    // Initialize the activity to main without logging in
+    @Rule
+    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<MainActivity>(MainActivity.class) {
+        @Override
+        protected void beforeActivityLaunched() {
+            super.beforeActivityLaunched();
+            if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+                FirebaseAuth.getInstance().signOut();
+            }
+        }
+
+    };
+
+    // Expect to redirect to LandPage
     @Test
     public void testRegisterInvalid() {
-        intentsTestRule.launchActivity(new Intent());
-        intended(hasComponent(LandPageActivity.class.getName()));
+        assertEquals(getActivityInstance().getClass().getSimpleName(), "LandPageActivity");
     }
 }
