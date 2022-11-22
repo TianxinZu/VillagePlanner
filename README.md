@@ -9,6 +9,7 @@
 * Device = `PIXEL 2 API 26`
 * Emulator version = `31.3.13`
 * Before executing the app, please set a location for the emulator in `extended controls`. When clicking that button, it should open a new window and default at "Location" session. Choose a location to represent the current location since emulator does not have a GPS to find the current location
+* The Notification test can only pass if you set if to the correct time Nov 21 2022 3:17pm
 * Our app requires the user to be connected to Firebase for authentication, database, and file storage reasons: referring to Connecting to Firebase below
 
 ## Connecting to Firebase
