@@ -78,7 +78,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     private Polyline poly;
     private FirebaseAuth auth;
     private FirebaseDatabase root;
-    private String userid;
+    private String userid = "";
     final String USER_TABLE = "Users";
     ImageView avatar;
     boolean running = true;
@@ -219,7 +219,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String imageUrl = (String) dataSnapshot.getValue();
-                if (imageUrl.isEmpty()) {
+                if (imageUrl == null || imageUrl.isEmpty()) {
                     imageUrl = "http://www.gravatar.com/avatar/?d=mp";
                 }
                 Glide.with(getApplicationContext()).load(imageUrl).into(avatar);
@@ -425,7 +425,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         return url;
     }
 
-    public String downloadUrl(String strUrl) throws IOException {
+    public static String downloadUrl(String strUrl) throws IOException {
         String data = "";
         InputStream iStream = null;
         HttpURLConnection urlConnection = null;
