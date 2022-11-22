@@ -64,7 +64,7 @@ import java.util.concurrent.ExecutionException;
 public class MainActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private static final String TAG = "MainActivity";
-    GoogleMap mapAPI;
+    public static GoogleMap mapAPI;
     SupportMapFragment mapFragment;
     private FusedLocationProviderClient fusedLocationProviderClient;
     Reminder _reminder = new Reminder("EAT", 1668742060, new Store("CAVA", new LatLng(34.02509105209718, -118.28452043192465)), 0, false);
@@ -84,6 +84,8 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     boolean running = true;
     int seconds = 0;
     int routeTime;
+    public static float initzoom;
+    public static float routezoom;
 
     public interface GetCurrentLocation {
         void onComplete(LatLng currentLocation);
@@ -195,7 +197,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             builder.include(targetLocation);
             LatLngBounds bound = builder.build();
             mapAPI.animateCamera(CameraUpdateFactory.newLatLngBounds(bound, 300), 1500, null);
-
+            routezoom = mapAPI.getCameraPosition().zoom;
         }
     }
 
@@ -256,6 +258,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
                 markers.add(m);
             }
             mapAPI.animateCamera(CameraUpdateFactory.newLatLngBounds(bound, 200), 1500, null);
+            initzoom = mapAPI.getCameraPosition().zoom;
             runTimer();
         });
         mapAPI.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
@@ -565,5 +568,9 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         Toast.makeText(MainActivity.this, "Successfully signed out!", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(MainActivity.this, LandPageActivity.class);
         startActivity(intent);
+    }
+
+    public static float getZoom() {
+        return mapAPI.getCameraPosition().zoom;
     }
 }
