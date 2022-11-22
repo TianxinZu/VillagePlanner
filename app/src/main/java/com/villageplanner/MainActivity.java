@@ -425,7 +425,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         return url;
     }
 
-    public String downloadUrl(String strUrl) throws IOException {
+    public static String downloadUrl(String strUrl) throws IOException {
         String data = "";
         InputStream iStream = null;
         HttpURLConnection urlConnection = null;
