@@ -221,6 +221,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String imageUrl = (String) dataSnapshot.getValue();
+                System.out.println(imageUrl);
                 if (imageUrl == null || imageUrl.isEmpty()) {
                     imageUrl = "http://www.gravatar.com/avatar/?d=mp";
                 }
@@ -567,6 +568,11 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
         auth.signOut();
         Toast.makeText(MainActivity.this, "Successfully signed out!", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(MainActivity.this, LandPageActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToProfilePage(View view) {
+        Intent intent = new Intent(MainActivity.this, ProfilePageActivity.class);
         startActivity(intent);
     }
 

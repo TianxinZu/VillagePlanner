@@ -50,8 +50,8 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
         if (password.isEmpty()) {
-            emailText.setError("Password is required!");
-            emailText.requestFocus();
+            passwordText.setError("Password is required!");
+            passwordText.requestFocus();
             return;
         }
 

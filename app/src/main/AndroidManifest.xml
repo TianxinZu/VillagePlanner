@@ -24,6 +24,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="32">
         <activity
+            android:name=".ProfilePageActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddReminderActivity"
             android:exported="false" />
         <activity

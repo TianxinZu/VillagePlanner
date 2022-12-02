@@ -24,3 +24,6 @@
 * Allow users to change their avatar
 * Better UI design to make User Experience better
 * ...
+
+## Testing
+* Please refer to the "testing document.pdf"

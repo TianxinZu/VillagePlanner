@@ -41,6 +41,6 @@ public class LoginInvalidTest2 {
         onView(withId(R.id.login))
                 .perform(click());
         wait(3000);
-        onView(withId(R.id.emailTextLogin)).check(matches(hasErrorText("Password is required!")));
+        onView(withId(R.id.passwordTextLogin)).check(matches(hasErrorText("Password is required!")));
     }
 }
